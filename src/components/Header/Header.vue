@@ -1,0 +1,191 @@
+<template >
+    <header class="header p-5">
+        <div class="container header__container 2xl:flex xl:flex lg:flex md:block items-center justify-between">
+            <div class="header__left  2xl:flex xl:flex lg:flex md:block sm:block block items-center">
+                <!-- RESPONSIEV NAVBAR -->
+                <div class="">
+                    <div class="flex items-center justify-between">
+                        <button @click="() => { menuOpen = !menuOpen }" class="hidden nav-hamburger">
+                            <i class="fa-solid fa-bars fa-2x" v-if="menuOpen === false" style="color: #ffffff;"></i>
+                            <i class="fa-solid fa-close fa-2x" v-if="menuOpen
+                                === true" style="color: #ffffff;"></i>
+                        </button>
+                        <router-link to="/">
+                            <img class="img-logo" src="../../assets/images/logo.svg" alt="">
+                        </router-link>
+                        <div class="navbar-right relative 2xl:hidden xl:hidden lg:hidden md:block sm:block block">
+                            <button
+                                class="header__btn-language relative z-10 block m-2 overflow-hidden focus:outline-none text-sm leading-loose align-middle px-6 py-2 rounded-full cursor-pointer text-sm bg-zinc-800 uppercase text-white"
+                                @click="isOpen = !isOpen">
+                                <i class="fa-solid fa-globe" style="color: #ffffff;"></i>
+                                <span class="ms-2 transition ease-in-out delay-50">O'zbekcha </span>
+                            </button>
+                            <button v-if="isOpen" @click="isOpen = false" tabindex="-1"
+                                class="fixed top-0 inset-0 h-full w-full bg-black opacity-0 cursor-default"></button>
+                            <div v-if="isOpen"
+                                class="absolute top-auto right-0 w-48 py-2 mt-2 rounded-xl border-gray-900 bg-white shadow-xl text-sm bg-zinc-800 uppercase text-white">
+                                <a href=""
+                                    class="text-sm text-white hover:bg-blue-600 hover:bg-zinc-700 block px-4 py-2 cursor-pointer">
+                                    O'zbekcha</a>
+                                <a href=""
+                                    class="text-sm text-white hover:bg-blue-600 hover:bg-zinc-700 block px-4 py-2 cursor-pointer">English</a>
+                            </div>
+                        </div>
+                    </div>
+                    <nav :class="menuOpen ? 'block' : 'hidden'" class="sitenav-hamburger bg-white">
+                        <ul class="sitenav-list md:block ms-3">
+                            <li class="sitenav-item ms-10">
+                                <router-link class="sitenav-link text-white uppercase text-lg" to="about-us">
+                                    Biz haqimizda
+                                </router-link>
+                                <hr class="opacity-50 mt-3 mb-3">
+                            </li>
+                            <li class="sitenav-item ms-10">
+                                <router-link class="sitenav-link text-white uppercase text-lg" to="projects">
+                                    Loyihalar
+                                </router-link>
+                                <hr class="opacity-50 mt-3 mb-3">
+
+                            </li>
+                            <li class="sitenav-item ms-10">
+                                <router-link class="sitenav-link text-white uppercase text-lg" to="master-residents">
+                                    Master residentlar
+                                </router-link>
+                                <hr class="opacity-50 mt-3 mb-3">
+
+                            </li>
+                            <li class="sitenav-item ms-10">
+                                <router-link class="sitenav-link text-white uppercase text-lg" to="residents">
+                                    residentlar
+                                </router-link>
+                                <hr class="opacity-50 mt-3 mb-3">
+
+                            </li>
+                            <li class="sitenav-item ms-10">
+                                <router-link class="sitenav-link text-white uppercase text-lg" to="media-residents">
+                                    Media residentlar
+                                </router-link>
+                                <hr class="opacity-50 mt-3 mb-3">
+
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- RESPONSIVE END -->
+
+                <nav class="sitenav">
+                    <ul class="sitenav-list 2xl:flex xl:flex lg:flex md:hidden ms-3">
+                        <li class="sitenav-item ms-10">
+                            <router-link class="sitenav-link text-white uppercase text-sm" to="about-us">
+                                Biz haqimizda
+                            </router-link>
+                        </li>
+                        <li class="sitenav-item ms-10">
+                            <router-link class="sitenav-link text-white uppercase text-sm" to="projects">
+                                Loyihalar
+                            </router-link>
+                        </li>
+                        <li class="sitenav-item ms-10">
+                            <router-link class="sitenav-link text-white uppercase text-sm" to="master-residents">
+                                Master residentlar
+                            </router-link>
+                        </li>
+                        <li class="sitenav-item ms-10">
+                            <router-link class="sitenav-link text-white uppercase text-sm" to="residents">
+                                residentlar
+                            </router-link>
+                        </li>
+                        <li class="sitenav-item ms-10">
+                            <router-link class="sitenav-link text-white uppercase text-sm" to="media-residents">
+                                Media residentlar
+                            </router-link>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="navbar-right relative 2xl:block xl:block lg:block md:hidden sm:hidden hidden">
+                <button
+                    class="header__btn-language relative z-10 block m-2 overflow-hidden focus:outline-none text-sm leading-loose align-middle px-6 py-2 rounded-full cursor-pointer text-sm bg-zinc-800 uppercase text-white"
+                    @click="isOpen = !isOpen">
+                    <i class="fa-solid fa-globe" style="color: #ffffff;"></i>
+                    <span class="ms-2 transition ease-in-out delay-50">O'zbekcha </span>
+                </button>
+                <button v-if="isOpen" @click="isOpen = false" tabindex="-1"
+                    class="fixed top-0 inset-0 h-full w-full bg-black opacity-0 cursor-default"></button>
+                <div v-if="isOpen"
+                    class="absolute top-auto right-0 w-48 py-2 mt-2 rounded-xl border-gray-900 bg-white shadow-xl text-sm bg-zinc-800 uppercase text-white">
+                    <a href=""
+                        class="text-sm text-white hover:bg-blue-600 hover:bg-zinc-700 block px-4 py-2 cursor-pointer">
+                        O'zbekcha</a>
+                    <a href=""
+                        class="text-sm text-white hover:bg-blue-600 hover:bg-zinc-700 block px-4 py-2 cursor-pointer">English</a>
+                </div>
+            </div>
+        </div>
+    </header>
+</template>
+<script>
+import { RouterLink } from "vue-router"
+export default {
+    data() {
+        return {
+            isOpen: false,
+            menuOpen: false,
+        }
+    }
+}
+</script>
+<style scoped>
+.header {
+    background-color: rgba(27, 27, 27, var(--tw-bg-opacity)) !important
+}
+
+.sitenav-link {
+    font-family: "Inter Medium";
+    transition: all 0.4s
+}
+
+
+.sitenav-link:hover {
+    color: #fec775 !important;
+    transition: all 0.4s
+}
+
+.sitenav-list {
+    transition: all 0.4s !important
+}
+
+.sitenav-list:hover>>>a {
+    color: gray;
+    transition: all 0.4s
+}
+
+.header__btn-language:hover>>>span {
+    color: #fec775 !important;
+    transition: all 0.4s
+}
+
+@media only screen and (max-width: 1020px) {
+
+    .nav-hamburger {
+        display: block
+    }
+
+    .sitenav {
+        display: none !important;
+    }
+
+    .sitenav-hamburger {
+        background-color: #131313 !important;
+        margin-left: -50px;
+    }
+
+    .sitenav-link {
+        color: gray;
+    }
+
+    .sitenav-list{
+        margin-top: 30px;
+    }
+}
+</style>
