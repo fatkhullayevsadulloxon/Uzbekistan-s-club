@@ -11,7 +11,7 @@
                                 === true" style="color: #ffffff;"></i>
                         </button>
                         <router-link to="/">
-                            <img class="img-logo 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-[500px] sm:ms-[400px] ms-[100px]" src="../../assets/images/logo.svg" alt="">
+                            <img class="img-logo 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-[500px] sm:ms-[400px] ms-[150px]" src="../../assets/images/logo.svg" alt="">
                         </router-link>
                     </div>
                     <nav :class="menuOpen ? 'block' : 'hidden'" class="sitenav-hamburger bg-white">
