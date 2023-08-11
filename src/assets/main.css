@@ -20,7 +20,12 @@
 }
 @media only screen and (max-width: 550px) {
     .container{
-        width: 500px !important;
+        width: 450px !important;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .container{
+        width: 400px !important;
     }
 }
 
@@ -71,6 +76,7 @@ html {
     line-height: 1.15;
     /* 1 */
     -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
     /* 2 */
 }
 

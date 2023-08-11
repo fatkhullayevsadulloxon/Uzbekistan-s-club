@@ -4,33 +4,15 @@
             <div class="header__left  2xl:flex xl:flex lg:flex md:block sm:block block items-center">
                 <!-- RESPONSIEV NAVBAR -->
                 <div class="">
-                    <div class="flex items-center justify-between">
+                    <div class="flex items-center">
                         <button @click="() => { menuOpen = !menuOpen }" class="hidden nav-hamburger">
                             <i class="fa-solid fa-bars fa-2x" v-if="menuOpen === false" style="color: #ffffff;"></i>
                             <i class="fa-solid fa-close fa-2x" v-if="menuOpen
                                 === true" style="color: #ffffff;"></i>
                         </button>
                         <router-link to="/">
-                            <img class="img-logo" src="../../assets/images/logo.svg" alt="">
+                            <img class="img-logo 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-[500px] sm:ms-[400px] ms-[100px]" src="../../assets/images/logo.svg" alt="">
                         </router-link>
-                        <div class="navbar-right relative 2xl:hidden xl:hidden lg:hidden md:block sm:block block">
-                            <button
-                                class="header__btn-language relative z-10 block m-2 overflow-hidden focus:outline-none text-sm leading-loose align-middle px-6 py-2 rounded-full cursor-pointer text-sm bg-zinc-800 uppercase text-white"
-                                @click="isOpen = !isOpen">
-                                <i class="fa-solid fa-globe" style="color: #ffffff;"></i>
-                                <span class="ms-2 transition ease-in-out delay-50">O'zbekcha </span>
-                            </button>
-                            <button v-if="isOpen" @click="isOpen = false" tabindex="-1"
-                                class="fixed top-0 inset-0 h-full w-full bg-black opacity-0 cursor-default"></button>
-                            <div v-if="isOpen"
-                                class="absolute top-auto right-0 w-48 py-2 mt-2 rounded-xl border-gray-900 bg-white shadow-xl text-sm bg-zinc-800 uppercase text-white">
-                                <a href=""
-                                    class="text-sm text-white hover:bg-blue-600 hover:bg-zinc-700 block px-4 py-2 cursor-pointer">
-                                    O'zbekcha</a>
-                                <a href=""
-                                    class="text-sm text-white hover:bg-blue-600 hover:bg-zinc-700 block px-4 py-2 cursor-pointer">English</a>
-                            </div>
-                        </div>
                     </div>
                     <nav :class="menuOpen ? 'block' : 'hidden'" class="sitenav-hamburger bg-white">
                         <ul class="sitenav-list md:block ms-3">
@@ -69,8 +51,28 @@
 
                             </li>
                         </ul>
+                        <div class="navbar-right relative 2xl:hidden xl:hidden lg:hidden md:block sm:block block">
+                            <button
+                                class="header__btn-language relative z-10 block m-2 overflow-hidden focus:outline-none text-sm leading-loose align-middle px-6 py-2 rounded-full cursor-pointer text-sm bg-zinc-800 uppercase text-white"
+                                @click="isOpen = !isOpen">
+                                <i class="fa-solid fa-globe" style="color: #ffffff;"></i>
+                                <span class="ms-2 transition ease-in-out delay-50">O'zbekcha </span>
+                            </button>
+                            <button v-if="isOpen" @click="isOpen = false" tabindex="-1"
+                                class="fixed top-0 inset-0 h-full w-full bg-black opacity-0 cursor-default"></button>
+                            <div v-if="isOpen"
+                                class="absolute top-auto right-0 w-48 py-2 mt-2 rounded-xl border-gray-900 bg-white shadow-xl text-sm bg-zinc-800 uppercase text-white">
+                                <a href=""
+                                    class="text-sm text-white hover:bg-blue-600 hover:bg-zinc-700 block px-4 py-2 cursor-pointer">
+                                    O'zbekcha</a>
+                                <a href=""
+                                    class="text-sm text-white hover:bg-blue-600 hover:bg-zinc-700 block px-4 py-2 cursor-pointer">English</a>
+                            </div>
+                        </div>
                     </nav>
+
                 </div>
+
                 <!-- RESPONSIVE END -->
 
                 <nav class="sitenav">
@@ -184,7 +186,7 @@ export default {
         color: gray;
     }
 
-    .sitenav-list{
+    .sitenav-list {
         margin-top: 30px;
     }
 }
