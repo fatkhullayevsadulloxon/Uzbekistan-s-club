@@ -5,14 +5,14 @@
             <div v-for="heroData in hero" :key="heroData.id" class="hero__left">
                 <img class="2xl:block xl:block lg:block md:hidden sm:hidden hidden 2xl:ms-[-200px] xl:ms-[-200px] lg:ms-[0px]"
                     src="../../assets/images/logo.svg" alt="" width="288" height="120">
-                <div class="text-base font-normal 2xl:relative text-white short-bio 2xl:max-w-[576px] xl:max-w-[576px] lg:max-w-[576px] md:max-w-[349px] sm:max-w-[349px] max-w-[349px] md:max-w-[576px] 2xl:block xl:block lg:block 2xl:mt-10 xl:mt-10 lg:mt-10 md:absolute md:mt-[430px] sm:absolute sm:mt-[400px] absolute mt-[300px]"
+                <div class="text-base font-normal 2xl:relative text-white short-bio 2xl:max-w-[576px] xl:max-w-[576px] lg:max-w-[576px] md:max-w-[349px] sm:max-w-[349px] max-w-[349px] md:max-w-[576px] 2xl:block xl:block lg:block 2xl:mt-10 xl:mt-10 lg:mt-10 md:absolute md:mt-[430px] sm:absolute sm:mt-[400px] absolute mt-[200px]"
                     v-html="heroData.short_bio">
 
                 </div>
             </div>
             <router-link to="/projects/ozbekistonlik">
                 <h3
-                    class="uppercase text-white absolute 2xl:mt-[150px] xl:mt-[150px] lg:mt-[150px] md:mt-[160px] sm:mt-[130px] mt-[120px] 2xl:ms-[450px] xl:ms-[450px] lg:ms-[450px] md:ms-[600px] sm:ms-[650px] hidden ms-[200px] opacity-75 2xl:text-5xl xl:text-5xl lg:text-5xl md:text-4xl sm:text-4xl text-3xl hero__heading font-bold font-[sans-serif]">
+                    class="uppercase text-white absolute 2xl:mt-[150px] xl:mt-[150px] lg:mt-[150px] md:mt-[160px] sm:mt-[130px] mt-[120px] 2xl:ms-[450px] xl:ms-[450px] lg:ms-[450px] md:ms-[600px] sm:ms-[650px] ms-[-200px] opacity-75 2xl:text-5xl xl:text-5xl lg:text-5xl md:text-4xl sm:text-4xl text-2xl hero__heading font-bold font-[sans-serif]">
                     O'zbekistonlik</h3>
                 <i class="fa-solid fa-play fa-4x absolute 2xl:ms-[650px] xl:ms-[650px] lg:ms-[650px] md:ms-[650px] 2xl:block xl:block lg:block md:block hidden 2xl:mt-[160px] xl:mt-[160px] lg:mt-[160px] md:mt-[160px] sm:mt-[140px] mt-[140px]"
                     style="color: #fec775;"></i>
