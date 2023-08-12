@@ -1,6 +1,5 @@
 <template>
-    <section class="hero mt-[200px]">
-        <img class="hero-pattern absolute mt-[150px] 2xl:block xl:block lg:block md:hidden sm:hidden hidden" src="https://uzbekistans.club/_nuxt/img/pattern.6a48bf5.png" alt="">
+    <section class="hero bg-[url('https://uzbekistans.club/_nuxt/img/pattern.6a48bf5.png')] bg-no-repeat bg-[left_top_1rem] mt-[200px]">
         <div
             class="container hero__container 2xl:flex xl:flex lg:flex md:block sm:block block items-center justify-between">
             <div v-for="heroData in hero" :key="heroData.id" class="hero__left">
@@ -48,7 +47,6 @@ export default {
 }
 
 .hero-pattern {
- 
     z-index: -10px !important;
 }
 

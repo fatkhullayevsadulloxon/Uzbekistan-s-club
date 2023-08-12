@@ -1,7 +1,8 @@
 <template>
   <div>
-      <Hero :hero="hero"/>
-      <Episodes :episodes="episodes"/>
+    <Hero :hero="hero" />
+    <Episodes :episodes="episodes" />
+    <Projects />
   </div>
 </template>
 
@@ -10,11 +11,13 @@
 import Episodes from '../components/Episodes/Episodes.vue'
 import Hero from '../components/Hero/Hero.vue'
 import axios from "axios"
+import Projects from '../components/Projects/Projects.vue'
 export default {
   components: {
     Hero,
-    Episodes
-},
+    Episodes,
+    Projects
+  },
   data() {
     return {
       hero: [],
@@ -23,14 +26,11 @@ export default {
   },
 
   methods: {
-    async fetchHero(lang) {
-      if (lang == null) {
-        lang = this.$route.params.lan
-      }
+    async fetchHero() {
       try {
         const { data } = await axios.get('https://uzbekclub.xn--h28h.uz/api/v1/home/', {
           headers: {
-            'Accept-Language': 'uz'
+            'Accept-Language': this.$route.params.lan
           },
         })
 
