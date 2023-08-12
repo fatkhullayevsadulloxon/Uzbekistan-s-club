@@ -143,7 +143,7 @@ export default {
 }
 
 .sitenav-link {
-    font-family: "Inter Medium";
+    font-family: "inter-medium";
     transition: all 0.4s
 }
 
