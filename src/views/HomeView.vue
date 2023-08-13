@@ -3,6 +3,7 @@
     <Hero :hero="hero" />
     <Episodes :episodes="episodes" />
     <Projects />
+    <MasterResidents :pictures="pictures"/>
   </div>
 </template>
 
@@ -12,16 +13,19 @@ import Episodes from '../components/Episodes/Episodes.vue'
 import Hero from '../components/Hero/Hero.vue'
 import axios from "axios"
 import Projects from '../components/Projects/Projects.vue'
+import MasterResidents from '../components/MasterResidents/MasterResidents.vue'
 export default {
   components: {
     Hero,
     Episodes,
-    Projects
-  },
+    Projects,
+    MasterResidents
+},
   data() {
     return {
       hero: [],
-      episodes: []
+      episodes: [],
+      pictures: [],
     }
   },
 
@@ -49,7 +53,7 @@ export default {
       try {
         const { data } = await axios.get('https://uzbekclub.xn--h28h.uz/api/v1/projects/latest_episodes/', {
           headers: {
-            'Accept-Language': 'uz'
+            'Accept-Language': this.$route.params.lan
           },
         })
 
@@ -68,11 +72,31 @@ export default {
         console.log(error);
       }
     },
+    async fetchResidents() {
+      try {
+        const { data } = await axios.get('https://uzbekclub.xn--h28h.uz/api/v1/residents/home/', {
+          headers: {
+            'Accept-Language': this.$route.params.lan
+          },
+        })
+        const newArr = data.map(item => ({
+          full_name: item.full_name,
+          slug: item.slug,
+          picture: item.picture,
+          picture_square: item.picture_square,
+          picture_vertical: item.picture_vertical,
+        }))
+        this.pictures = newArr
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
 
   mounted() {
     this.fetchHero()
     this.fetchEpisodes()
+    this.fetchResidents()
   },
 }
 </script>
