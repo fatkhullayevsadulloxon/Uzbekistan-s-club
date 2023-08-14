@@ -2,8 +2,10 @@
   <div>
     <Hero :hero="hero" />
     <Episodes :episodes="episodes" />
-    <Projects />
+    <Projects :projects="projects"/>
     <MasterResidents :pictures="pictures"/>
+    <Profile :profile="profile"/>
+    <TopQuestions :topquestion="topquestion"/>
   </div>
 </template>
 
@@ -14,18 +16,25 @@ import Hero from '../components/Hero/Hero.vue'
 import axios from "axios"
 import Projects from '../components/Projects/Projects.vue'
 import MasterResidents from '../components/MasterResidents/MasterResidents.vue'
+import Profile from '../components/Profile/Profile.vue'
+import TopQuestions from '../components/TopQuestions/TopQuestions.vue'
 export default {
   components: {
     Hero,
     Episodes,
     Projects,
-    MasterResidents
+    MasterResidents,
+    Profile,
+    TopQuestions
 },
   data() {
     return {
       hero: [],
       episodes: [],
       pictures: [],
+      projects: [],
+      profile: [],
+      topquestion: [],
     }
   },
 
@@ -91,12 +100,81 @@ export default {
         console.log(error);
       }
     },
+    async fetchProjects() {
+      try {
+        const { data } = await axios.get('https://uzbekclub.xn--h28h.uz/api/v1/projects/home/', {
+          headers: {
+            'Accept-Language': this.$route.params.lan
+          },
+        })
+        const newArr = data.map(item => ({
+          id: item.id,
+          title: item.title,
+          sub_title: item.sub_title,
+          slug: item.slug,
+          thumbnail: item.thumbnail,
+          episode_count: item.episode_count,
+        }))
+        this.projects = newArr
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async fetchProfile() {
+      try {
+        const { data } = await axios.get('https://uzbekclub.xn--h28h.uz/api/v1/articles/home/TOP/', {
+          headers: {
+            'Accept-Language': this.$route.params.lan
+          },
+          params: {
+            limit: 6
+          }
+        })
+        const result = data.results
+        const newArr = result.map(item => ({
+          id: item.id,
+          title: item.title,
+          slug: item.slug,
+          image: item.image,
+          created_at: item.created_at,
+        }))
+        this.profile = newArr
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async fetchTopQuestions() {
+      try {
+        const { data } = await axios.get('https://uzbekclub.xn--h28h.uz/api/v1/articles/home/ANALYTICS/', {
+          headers: {
+            'Accept-Language': this.$route.params.lan
+          },
+          params:{
+            limit: 4
+          }
+        })
+        const result = data.results
+        const newArr = result.map(item => ({
+          id: item.id,
+          title: item.title,
+          slug: item.slug,
+          image: item.image,
+          created_at: item.created_at,
+        }))
+        this.topquestion = newArr
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
 
   mounted() {
     this.fetchHero()
     this.fetchEpisodes()
     this.fetchResidents()
+    this.fetchProjects()
+    this.fetchProfile()
+    this.fetchTopQuestions()
   },
 }
 </script>

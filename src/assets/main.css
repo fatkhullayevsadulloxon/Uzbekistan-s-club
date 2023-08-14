@@ -5,34 +5,38 @@
 .container {
     width: 1250px !important;
     margin: 0 auto !important;
-    padding: 0 20px !important;
+    /* padding: 0 20px !important; */
 }
 
-*::selection{
+*::selection {
     background-color: #fec775 !important;
     color: #131313 !important;
 }
 
 @media only screen and (max-width: 640px) {
-    .container{
+    .container {
         width: 600px !important;
     }
 }
+
 @media only screen and (max-width: 550px) {
-    .container{
+    .container {
         width: 450px !important;
     }
 }
+
 @media only screen and (max-width: 400px) {
-    .container{
+    .container {
         width: 450px !important;
     }
 }
+
 @media only screen and (max-width: 400px) {
-    html{
-        overflow-x: hidden;
+    html {
+        overflow-x: hidden !important;
     }
 }
+
 
 
 @font-face {
@@ -61,7 +65,8 @@ h6 {
 
 
 p,
-strong, span {
+strong,
+span {
     font-family: "Inter Medium";
     transition: all 0.4s;
 }
@@ -95,6 +100,10 @@ html {
 body {
     margin: 0;
     background-color: #131313;
+    box-sizing: border-box;
+    width: 100vw;
+    overflow-x: hidden;
+    margin: 0 auto;
 }
 
 /**
