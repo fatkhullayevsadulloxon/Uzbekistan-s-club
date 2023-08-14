@@ -13,9 +13,9 @@
             </div>
             <router-link to="/projects/ozbekistonlik">
                 <h3
-                    class="uppercase text-white absolute 2xl:mt-[150px] xl:mt-[150px] lg:mt-[150px] md:mt-[160px] sm:mt-[130px] mt-[120px] 2xl:ms-[450px] xl:ms-[450px] lg:ms-[450px] md:ms-[600px] sm:ms-[650px] ms-[-200px] opacity-75 2xl:text-5xl xl:text-5xl lg:text-5xl md:text-4xl sm:text-4xl text-2xl hero__heading font-bold font-[sans-serif]">
+                    class="uppercase text-white absolute 2xl:mt-[150px] xl:mt-[150px] lg:mt-[150px] md:mt-[160px] sm:mt-[130px] mt-[120px] 2xl:ms-[180px] xl:ms-[180px] lg:ms-[180px] md:ms-[800px] sm:ms-[650px] ms-[-200px] opacity-75 2xl:text-5xl xl:text-5xl lg:text-5xl md:text-4xl sm:text-4xl text-2xl hero__heading font-bold font-[sans-serif]">
                     O'zbekistonlik</h3>
-                <i class="fa-solid fa-play fa-4x absolute 2xl:ms-[650px] xl:ms-[650px] lg:ms-[650px] md:ms-[650px] 2xl:block xl:block lg:block md:block hidden 2xl:mt-[160px] xl:mt-[160px] lg:mt-[160px] md:mt-[160px] sm:mt-[140px] mt-[140px]"
+                <i class="fa-solid fa-play fa-4x absolute 2xl:ms-[350px] xl:ms-[350px] lg:ms-[350px] md:ms-[650px] 2xl:block xl:block lg:block md:block hidden 2xl:mt-[160px] xl:mt-[160px] lg:mt-[160px] md:mt-[160px] sm:mt-[140px] mt-[140px]"
                     style="color: #fec775;"></i>
                 <video
                     class="rounded 2xl:ms-[300px] xl:ms-[200px] lg:ms-[0px] 2xl:mt-0 xl:mt-0 lg:mt-0 md:mt-[-200px] sm:mt-[-200px] mt-[-200px] 2xl:w-[700px] xl:w-[700px] lg:w-[700px] md:w-[700px] !sm:w-[600px] w-[350px]"

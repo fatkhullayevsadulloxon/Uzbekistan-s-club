@@ -12,11 +12,11 @@
             </div>
             <div
                 class="top-questions__box grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 gap-4 2xl:m-0 xl:m-0 lg:m-0 md:m-0 sm:m-5 ms-6">
-                <div class="top-questions__list 2xl:w-[279px] xl:w-[279px] lg:w-[279px] md:w-[279px] sm:w-[360px] w-[360px] h-[170px] mt-5" v-for="topquestionData in topquestion" :key="topquestionData.id">
-                    <router-link class="top-questions__link" to="/">
+                <div class="top-questions__list 2xl:w-[285px] xl:w-[279px] lg:w-[279px] md:w-[279px] sm:w-[360px] w-[360px] h-[170px] mt-5" v-for="topquestionData in topquestion" :key="topquestionData.id">
+                    <router-link class="top-questions__link" :to="`/${$route.params.lan}/${topquestionData.slug}`">
                         <img class="top-questions__image w-full h-full object-cover rounded-md"
                             :src="topquestionData.image" alt="">
-                        <div class="gradient absolute mt-[-170px] 2xl:w-[279px] xl:w-[279px] lg:w-[279px] md:w-[279px] sm:w-[360px] w-[360px] !h-[170px] bg-white">
+                        <div class="gradient absolute mt-[-171px] 2xl:w-[283px] xl:w-[279px] lg:w-[279px] md:w-[279px] sm:w-[360px] w-[360px] !h-[170px] bg-white">
                             .
                         </div>
                         <p class="top-questions__heading text-white font-[inter-medium] absolute mt-[-28px] ms-5">
