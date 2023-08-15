@@ -1,5 +1,5 @@
 <template >
-    <header class="header p-5">
+    <header class="header p-5 ">
         <div class="container header__container 2xl:flex xl:flex lg:flex md:block items-center justify-between">
             <div class="header__left  2xl:flex xl:flex lg:flex md:block sm:block block items-center">
                 <!-- RESPONSIEV NAVBAR -->
@@ -11,40 +11,46 @@
                                 === true" style="color: #ffffff;"></i>
                         </button>
                         <router-link to="/">
-                            <img class="img-logo 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-[500px] sm:ms-[450px] ms-[195px]" src="../../assets/images/logo.svg" alt="">
+                            <img class="img-logo 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-[500px] sm:ms-[450px] ms-[195px]"
+                                src="../../assets/images/logo.svg" alt="">
                         </router-link>
                     </div>
                     <nav :class="menuOpen ? 'block' : 'hidden'" class="sitenav-hamburger bg-white">
                         <ul class="sitenav-list md:block ms-3">
                             <li class="sitenav-item ms-10">
-                                <router-link class="sitenav-link text-white uppercase text-lg" :to="`/${$route.params.lan}/about-us`">
+                                <router-link class="sitenav-link text-white uppercase text-lg"
+                                    :to="`/${$route.params.lan}/about-us`">
                                     Biz haqimizda
                                 </router-link>
                                 <hr class="opacity-50 mt-3 mb-3">
                             </li>
                             <li class="sitenav-item ms-10">
-                                <router-link class="sitenav-link text-white uppercase text-lg" :to="`/${$route.params.lan}/projects`">
+                                <router-link class="sitenav-link text-white uppercase text-lg"
+                                    :to="`/${$route.params.lan}/projects`">
                                     Loyihalar
                                 </router-link>
                                 <hr class="opacity-50 mt-3 mb-3">
 
                             </li>
                             <li class="sitenav-item ms-10">
-                                <router-link class="sitenav-link text-white uppercase text-lg" :to="`/${$route.params.lan}/master-residents`">
+                                <router-link class="sitenav-link text-white uppercase text-lg"
+                                    :to="`/${$route.params.lan}/master-residents`">
                                     Master residentlar
                                 </router-link>
                                 <hr class="opacity-50 mt-3 mb-3">
 
                             </li>
                             <li class="sitenav-item ms-10">
-                                <router-link class="sitenav-link text-white uppercase text-lg" :to="`/${$route.params.lan}/residents`">
+                                <router-link class="sitenav-link text-white uppercase text-lg"
+                                    :to="`/${$route.params.lan}/residents`">
                                     residentlar
                                 </router-link>
                                 <hr class="opacity-50 mt-3 mb-3">
 
                             </li>
                             <li class="sitenav-item ms-10">
-                                <router-link class="sitenav-link text-white uppercase text-lg" :to="`/${$route.params.lan}/media-residents`">
+                                <router-link class="sitenav-link text-white uppercase text-lg"
+                                    :to="`/${$route.params.lan}/media-residents`">
                                     Media residentlar
                                 </router-link>
                                 <hr class="opacity-50 mt-3 mb-3">
@@ -78,27 +84,32 @@
                 <nav class="sitenav">
                     <ul class="sitenav-list 2xl:flex xl:flex lg:flex md:hidden ms-3">
                         <li class="sitenav-item ms-10">
-                            <router-link class="sitenav-link text-white uppercase text-sm" :to="`/${$route.params.lan}/about-us`">
+                            <router-link class="sitenav-link text-white uppercase text-sm"
+                                :to="`/${$route.params.lan}/about-us`">
                                 Biz haqimizda
                             </router-link>
                         </li>
                         <li class="sitenav-item ms-10">
-                            <router-link class="sitenav-link text-white uppercase text-sm" :to="`/${$route.params.lan}/projects`">
+                            <router-link class="sitenav-link text-white uppercase text-sm"
+                                :to="`/${$route.params.lan}/projects`">
                                 Loyihalar
                             </router-link>
                         </li>
                         <li class="sitenav-item ms-10">
-                            <router-link class="sitenav-link text-white uppercase text-sm" :to="`/${$route.params.lan}/master-residents`">
+                            <router-link class="sitenav-link text-white uppercase text-sm"
+                                :to="`/${$route.params.lan}/master-residents`">
                                 Master residentlar
                             </router-link>
                         </li>
                         <li class="sitenav-item ms-10">
-                            <router-link class="sitenav-link text-white uppercase text-sm" :to="`/${$route.params.lan}/residents`">
+                            <router-link class="sitenav-link text-white uppercase text-sm"
+                                :to="`/${$route.params.lan}/residents`">
                                 residentlar
                             </router-link>
                         </li>
                         <li class="sitenav-item ms-10">
-                            <router-link class="sitenav-link text-white uppercase text-sm" :to="`/${$route.params.lan}/media-residents`">
+                            <router-link class="sitenav-link text-white uppercase text-sm"
+                                :to="`/${$route.params.lan}/media-residents`">
                                 Media residentlar
                             </router-link>
                         </li>
@@ -139,7 +150,11 @@ export default {
 </script>
 <style scoped>
 .header {
-    background-color: rgba(27, 27, 27, var(--tw-bg-opacity)) !important
+    background-color: #171717;
+    z-index: 15;
+    position: fixed;
+    top: 0;
+    width: 100vw !important;
 }
 
 .sitenav-link {

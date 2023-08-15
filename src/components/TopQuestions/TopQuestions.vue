@@ -16,10 +16,7 @@
                     <router-link class="top-questions__link" :to="`/${$route.params.lan}/${topquestionData.slug}`">
                         <img class="top-questions__image w-full h-full object-cover rounded-md"
                             :src="topquestionData.image" alt="">
-                        <div class="gradient absolute mt-[-171px] 2xl:w-[283px] xl:w-[279px] lg:w-[279px] md:w-[279px] sm:w-[360px] w-[360px] !h-[170px] bg-white">
-                            .
-                        </div>
-                        <p class="top-questions__heading text-white font-[inter-medium] absolute mt-[-28px] ms-5">
+                        <p class="top-questions__heading text-white font-[inter-medium] !z-[20] mt-[-28px] ms-5">
                             {{ topquestionData.title.substring(0, 28) }}...</p>
                     </router-link>
                 </div>
