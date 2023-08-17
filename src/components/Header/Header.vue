@@ -111,7 +111,7 @@
                         <li class="sitenav-item ms-10">
                             <router-link class="sitenav-link text-white uppercase text-sm"
                                 :to="`/${$route.params.lan}/media-residents`">
-                                {{ langtext[$route.params.lan].homePage.HeaderNavResident }}
+                                {{ langtext[$route.params.lan].homePage.HeaderNavMediaResident }}
                             </router-link>
                         </li>
                     </ul>
