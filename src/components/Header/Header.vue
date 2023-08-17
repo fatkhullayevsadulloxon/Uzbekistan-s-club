@@ -16,11 +16,11 @@
                         </router-link>
                     </div>
                     <nav :class="menuOpen ? 'block' : 'hidden'" class="sitenav-hamburger bg-white">
-                        <ul class="sitenav-list md:block ms-3">
+                        <ul v-if="langtext[$route.params.lan] != undefined" class="sitenav-list md:block ms-3">
                             <li class="sitenav-item ms-10">
                                 <router-link class="sitenav-link text-white uppercase text-lg"
                                     :to="`/${$route.params.lan}/about-us`">
-                                    Biz haqimizda
+                                    <!-- {{ langtext[$route.params.lan].homePage.HeaderNavAbout }} -->
                                 </router-link>
                                 <hr class="opacity-50 mt-3 mb-3">
                             </li>
@@ -82,35 +82,36 @@
                 <!-- RESPONSIVE END -->
 
                 <nav class="sitenav">
-                    <ul class="sitenav-list 2xl:flex xl:flex lg:flex md:hidden ms-3">
+                    <ul v-if="langtext[$route.params.lan] != undefined"
+                        class="sitenav-list 2xl:flex xl:flex lg:flex md:hidden ms-3">
                         <li class="sitenav-item ms-10">
                             <router-link class="sitenav-link text-white uppercase text-sm"
                                 :to="`/${$route.params.lan}/about-us`">
-                                Biz haqimizda
+                                {{ langtext[$route.params.lan].homePage.HeaderNavAbout }}
                             </router-link>
                         </li>
                         <li class="sitenav-item ms-10">
                             <router-link class="sitenav-link text-white uppercase text-sm"
                                 :to="`/${$route.params.lan}/projects`">
-                                Loyihalar
+                                {{ langtext[$route.params.lan].homePage.HeaderNavProject }}
                             </router-link>
                         </li>
                         <li class="sitenav-item ms-10">
                             <router-link class="sitenav-link text-white uppercase text-sm"
                                 :to="`/${$route.params.lan}/master-residents`">
-                                Master residentlar
+                                {{ langtext[$route.params.lan].homePage.HeaderNavMasterResident }}
                             </router-link>
                         </li>
                         <li class="sitenav-item ms-10">
                             <router-link class="sitenav-link text-white uppercase text-sm"
                                 :to="`/${$route.params.lan}/residents`">
-                                residentlar
+                                {{ langtext[$route.params.lan].homePage.HeaderNavResident }}
                             </router-link>
                         </li>
                         <li class="sitenav-item ms-10">
                             <router-link class="sitenav-link text-white uppercase text-sm"
                                 :to="`/${$route.params.lan}/media-residents`">
-                                Media residentlar
+                                {{ langtext[$route.params.lan].homePage.HeaderNavResident }}
                             </router-link>
                         </li>
                     </ul>
@@ -138,14 +139,21 @@
     </header>
 </template>
 <script>
+import { Lang } from '../Lang/Lang';
+
 import { RouterLink } from "vue-router"
 export default {
     data() {
+        setTimeout(() => {
+            console.log(this.$route.params);
+        }, 1000)
         return {
             isOpen: false,
             menuOpen: false,
+            langtext: Lang,
         }
-    }
+    },
+
 }
 </script>
 <style scoped>

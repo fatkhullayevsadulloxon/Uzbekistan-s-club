@@ -4,7 +4,8 @@
             <div class="pt-8">
                 <h3
                     class="z-10 2xl:!text-3xl xl:!text-lg lg:!text-lg md:!text-[44px] text-white !font-[Stroma] uppercase 2xl:m-0 xl:m-0 lg:m-0 md:m-0 sm:m-5 ms-6">
-                    Top savollar</h3>
+                    {{ langtext[$route.params.lan].homePage.partners }}
+                </h3>
             </div>
             <div
                 class="partners__box grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 gap-4 2xl:m-0 xl:m-0 lg:m-0 md:m-0 sm:m-5 ms-6 !pb-[40px]">
@@ -18,14 +19,21 @@
 </template>
 <script>
 
+import { Lang } from "../Lang/Lang"
 
 
 export default {
     props: {
         partners: {
-
+            type: Array,
+            required: true,
         }
-    }
+    },
+    data() {
+        return {
+            langtext: Lang
+        }
+    },
 }
 </script>
 <style scoped>

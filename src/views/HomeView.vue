@@ -52,19 +52,12 @@ export default {
   methods: {
     async fetchHero() {
       try {
-        const { data } = await axios.get('https://uzbekclub.xn--h28h.uz/api/v1/home/', {
+        const { data } = await axios.get('https://uzbekclub.xn--h28h.uz/api/v1/pages/home-description/', {
           headers: {
             'Accept-Language': this.$route.params.lan
           },
         })
-
-        const dataArr = data.results
-        const newArr = dataArr.map(item => ({
-          video_url: item.video_url,
-          short_bio: item.short_bio,
-
-        }))
-        this.hero = newArr
+        this.hero = data
       } catch (error) {
         console.log(error);
       }

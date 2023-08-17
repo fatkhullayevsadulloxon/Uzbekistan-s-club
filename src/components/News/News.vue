@@ -4,10 +4,11 @@
             <div class="flex items-center justify-between pt-8">
                 <h3
                     class="z-10 2xl:!text-3xl xl:!text-lg lg:!text-lg md:!text-[44px] text-white !font-[inter-medium] uppercase  2xl:m-0 xl:m-0 lg:m-0 md:m-0 sm:m-5 ms-6">
-                    Yangiliklar</h3>
+                    {{ langtext[$route.params.lan].homePage.news }}
+                </h3>
                 <router-link class="text-gray-500 text-base 2xl:block xl:block lg:block md:hidden sm:hidden hidden"
-                    to="/project">
-                    Barchasi
+                    :to="`${$route.params.lan}/news`">
+                    {{ langtext[$route.params.lan].homePage.all }}
                 </router-link>
             </div>
             <div
@@ -27,6 +28,7 @@
     </section>
 </template>
 <script>
+import { Lang } from '../Lang/Lang';
 import { RouterLink } from 'vue-router';
 export default {
     props: {
@@ -34,7 +36,12 @@ export default {
             type: Array,
             required: true
         }
-    }
+    },
+    data() {
+        return {
+            langtext: Lang
+        }
+    },
 }
 </script>
 <style scoped>
@@ -52,4 +59,5 @@ export default {
 .top-questions__list:hover p {
     transition: all 0.4s;
     color: #FEC775;
-}</style>
+}
+</style>

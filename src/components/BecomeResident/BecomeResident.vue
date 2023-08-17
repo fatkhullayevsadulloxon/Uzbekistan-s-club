@@ -1,10 +1,14 @@
 <template>
     <section class="become-resident">
         <div class="container become-resident__container">
-            <div class="text-center absolute z-10 mt-[120px] 2xl:ms-[500px] xl:ms-[500px] lg:ms-[500px] md:ms-[500px] sm:ms-[200px] ms-[100px]">
-                <p class="!font-[Stroma] text-white font-medium text-xl uppercase text-center mb-5">Rezident bo'lish</p>
-                <router-link class="resident__btn text-black rounded-md !font-[inter-medium]" :to="`/${$route.params.lan}/become-a-resident`">
-                    Topshirish
+            <div
+                class="text-center absolute z-10 mt-[120px] 2xl:ms-[500px] xl:ms-[500px] lg:ms-[500px] md:ms-[500px] sm:ms-[200px] ms-[100px]">
+                <p class="!font-[Stroma] text-white font-medium text-xl uppercase text-center mb-5"> {{
+                    langtext[$route.params.lan].homePage.becomeAResident }}
+                </p>
+                <router-link class="resident__btn text-black rounded-md !font-[inter-medium]"
+                    :to="`/${$route.params.lan}/become-a-resident`">
+                   {{ langtext[$route.params.lan].homePage.becomeAResidentBtn }}
                 </router-link>
             </div>
             <img class="2xl:w-[1208px] xl:w-[1208px] lg:w-[1208px] md:w-[800px] sm:w-[500px] w-[416px] h-[238px] rounded-2xl absolute mt-10 become-resident__img object-cover"
@@ -14,9 +18,15 @@
 </template>
 <script>
 import { RouterLink } from 'vue-router';
+import { Lang } from "../Lang/Lang"
 
 export default {
-    components: { RouterLink }
+    components: { RouterLink },
+    data() {
+        return {
+            langtext: Lang
+        }
+    },
 }
 </script>
 <style scoped>
@@ -35,7 +45,7 @@ export default {
     color: white !important
 }
 
-.become-resident__img{
+.become-resident__img {
     border: 1px solid #FEC775;
 }
 </style>

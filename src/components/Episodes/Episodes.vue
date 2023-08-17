@@ -2,10 +2,11 @@
     <section class="episodes 2xl:mt-[200px] xl:mt-[100px] lg:mt-[100px] md:mt-[350px] sm:mt-[500px] mt-[350px]">
         <div class="container episodes__container">
             <div class="flex items-center justify-between">
-                <h3 class="z-10 !text-2xl md:!text-[44px] text-white 2xl:m-0 xl:m-0 lg:m-0 md:m-0 sm:m-5 ms-6">SO‘NGGI EPIZODLAR</h3>
+                <h3 class="z-10 !text-2xl md:!text-[44px] text-white 2xl:m-0 xl:m-0 lg:m-0 md:m-0 sm:m-5 ms-6">{{
+                    langtext[$route.params.lan].homePage.LastEpisodes }}</h3>
                 <router-link class="text-gray-500 text-base 2xl:block xl:block lg:block md:hidden sm:hidden hidden"
                     :to="`${$route.params.lan}/`">
-                    Barchasi
+                    {{ langtext[$route.params.lan].homePage.All }}
                 </router-link>
             </div>
             <div class="2xl:flex xl:flex lg:flex md:block sm:block block">
@@ -20,7 +21,8 @@
                             :to="`/${$route.params.lan}/projects/ozbekistonlik/${episodesData.id}`">
                             {{ episodesData.title }}
                         </router-link>
-                        <hr class="opacity-25 2xl:w-[383px] xl:w-[383px] lg:w-[383px] md:w-[383px] sm:w-[360px] w-[360px] mt-4 mb-4">
+                        <hr
+                            class="opacity-25 2xl:w-[383px] xl:w-[383px] lg:w-[383px] md:w-[383px] sm:w-[360px] w-[360px] mt-4 mb-4">
                     </div>
                 </div>
                 <div>
@@ -34,7 +36,8 @@
                                     {{ episodesData.title }}
                                 </router-link>
                             </li>
-                            <hr class="opacity-25 2xl:w-[383px] xl:w-[383px] lg:w-[383px] md:w-[383px] sm:w-[360px] w-[360px] mt-4 mb-4">
+                            <hr
+                                class="opacity-25 2xl:w-[383px] xl:w-[383px] lg:w-[383px] md:w-[383px] sm:w-[360px] w-[360px] mt-4 mb-4">
                         </ul>
                     </div>
                 </div>
@@ -44,20 +47,25 @@
 </template>
 <script>
 import { RouterLink } from 'vue-router';
+import { Lang } from "../Lang/Lang"
 export default {
     props: {
         episodes: {
             type: Array,
             required: true
         }
-    }
+    },
+    data() {
+        return {
+            langtext: Lang
+        }
+    },
 }
 </script>
 <style scoped>
 .episodes__img {
     border: 1px solid transparent;
     transition: all 0.6s
-
 }
 
 .episodes__img:hover {

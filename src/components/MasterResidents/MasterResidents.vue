@@ -1,11 +1,14 @@
 <template>
-    <section class="master-residents bg-[url('https://uzbekistans.club/_nuxt/img/pattern.6a48bf5.png')] bg-no-repeat bg-[left_top_1rem]">
+    <section
+        class="master-residents bg-[url('https://uzbekistans.club/_nuxt/img/pattern.6a48bf5.png')] bg-no-repeat bg-[left_top_1rem]">
         <div class="container master-residents__container">
             <div class="flex items-center justify-between">
-                <h3 class="z-10 !text-2xl md:!text-[44px] text-white  2xl:m-0 xl:m-0 lg:m-0 md:m-0 sm:m-5 ms-6">SO‘NGGI EPIZODLAR</h3>
+                <h3 class="z-10 !text-2xl md:!text-[44px] text-white  2xl:m-0 xl:m-0 lg:m-0 md:m-0 sm:m-5 ms-6">
+                    {{ langtext[$route.params.lan].homePage.HeaderNavMasterResident }}
+                </h3>
                 <router-link class="text-gray-500 text-base 2xl:block xl:block lg:block md:hidden sm:hidden hidden"
-                    to="/project">
-                    Barchasi
+                    :to="`/${$route.params.lan}/master-residents`">
+                    {{ langtext[$route.params.lan].homePage.All }}
                 </router-link>
             </div>
 
@@ -27,12 +30,19 @@
 </template>
 <script>
 import { RouterLink } from 'vue-router';
+import { Lang } from "../Lang/Lang"
+
 
 export default {
     props: {
         pictures: {
             type: Array,
             required: true,
+        }
+    },
+    data() {
+        return {
+            langtext: Lang
         }
     },
     components: { RouterLink }
@@ -48,4 +58,5 @@ export default {
     transition: all 0.4s;
     border: 1px solid #FEC775;
     opacity: 0.6;
-}</style>
+}
+</style>

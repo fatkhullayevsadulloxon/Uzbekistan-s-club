@@ -3,11 +3,11 @@
         class="hero bg-[url('https://uzbekistans.club/_nuxt/img/pattern.6a48bf5.png')] bg-no-repeat bg-[left_top_1rem] mt-[200px]">
         <div
             class="container hero__container 2xl:flex xl:flex lg:flex md:block sm:block block items-center justify-between">
-            <div v-for="heroData in hero" :key="heroData.id" class="hero__left">
+            <div class="hero__left">
                 <img class="2xl:block xl:block lg:block md:hidden sm:hidden hidden 2xl:ms-[-200px] xl:ms-[-200px] lg:ms-[0px]"
                     src="../../assets/images/logo.svg" alt="" width="288" height="120">
-                <div class="text-base font-normal 2xl:relative text-white short-bio 2xl:max-w-[576px] xl:max-w-[576px] lg:max-w-[576px] md:max-w-[349px] sm:max-w-[500px] max-w-[349px] md:max-w-[576px] 2xl:block xl:block lg:block 2xl:mt-10 xl:mt-10 lg:mt-10 md:absolute md:mt-[430px] sm:absolute sm:mt-[400px] absolute mt-[250px] ms-7"
-                    v-html="heroData.short_bio">
+                <div class="text-base font-normal 2xl:relative text-white short-bio 2xl:max-w-[559px] xl:max-w-[559px] lg:max-w-[559px] md:max-w-[349px] sm:max-w-[500px] max-w-[349px] md:max-w-[576px] 2xl:block xl:block lg:block 2xl:mt-10 xl:mt-10 lg:mt-10 md:absolute md:mt-[430px] sm:absolute sm:mt-[400px] absolute mt-[250px] ms-7"
+                    v-html="hero.about">
 
                 </div>
             </div>
@@ -39,7 +39,7 @@ export default {
 </script>
 <style scoped>
 .short-bio>>>p {
-    font-family: "Inter Medium" !important;
+    font-family: 'inter-medium' !important;
 }
 
 .hero__container>>>p {
