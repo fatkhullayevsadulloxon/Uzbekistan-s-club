@@ -62,7 +62,7 @@
                             {{ langtext[$route.params.lan].homePage.Developed }}
                             <a href="https://uic.group/" class="flex">
                                 <img class="uic-logo" src="../../assets/images/uicSymbol.svg" alt="">
-                                <img class="" src="../../assets/images/uicText.svg" alt="">
+                                <img class="uic-logo__hidden" src="../../assets/images/uicText.svg" alt="">
                             </a>
                         </span>
                     </div>
@@ -109,5 +109,17 @@ export default {
     filter: none;
     -webkit-filter: grayscale(0);
     transition: all 0.4s;
+}
+
+.uic-logo__hidden {
+    z-index: -1;
+    margin-left: 50px;
+    position: absolute;
+}
+
+.uic-logo:hover .uic-logo__hidden {
+    margin-left: 50px;
+    transition: all 0.4s;
+    z-index: 1 !important;
 }
 </style>

@@ -189,6 +189,9 @@ export default {
     color: #fec775 !important;
     transition: all 0.4s
 }
+.router-link-active {
+    color: #fec775 !important
+}
 
 @media only screen and (max-width: 1020px) {
 

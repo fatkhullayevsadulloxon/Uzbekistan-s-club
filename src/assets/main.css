@@ -8,6 +8,10 @@
     /* padding: 0 20px !important; */
 }
 
+.router-link-active{
+    color: #fec775 !important;
+}
+
 *::selection {
     background-color: #fec775 !important;
     color: #131313 !important;
