@@ -1,6 +1,6 @@
 <template>
     <section
-        class="hero bg-[url('https://uzbekistans.club/_nuxt/img/pattern.6a48bf5.png')] bg-no-repeat bg-[left_top_1rem] 2xl:mt-[200px] xl:mt-[200px] lg:mt-[200px] md:mt-[400px] sm:mt-[500px] mt-[600px]">
+        class="hero bg-[url('https://uzbekistans.club/_nuxt/img/pattern.6a48bf5.png')] bg-no-repeat bg-[left_top_1rem] 2xl:mt-[200px] xl:mt-[200px] lg:mt-[200px] md:mt-[400px] sm:mt-[500px] mt-[350px]">
         <div
             class="container hero__container 2xl:flex xl:flex lg:flex md:block sm:block block items-center justify-between">
             <div class="hero__left">

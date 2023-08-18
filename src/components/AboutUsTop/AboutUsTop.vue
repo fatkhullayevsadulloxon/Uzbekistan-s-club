@@ -15,18 +15,18 @@
             </nav>
             <div class="about-us__box bg-[#181818] 2xl:h-[2349px] xl:h-[2349px] lg:h-[2349px] md:h-[2650px] 2xl:w-full xl:w-full lg:w-full md:w-full sm:w-[600px] w-[500px] m-auto rounded-2xl">
                 <h3 class="text-white uppercase text-center text-5xl pt-7 2xl:me-0 xl:me-0 lg:me-0 md:me-0 sm:me-0 me-20">About us</h3>
-                <hr class="2xl:w-[847px] xl:w-[847px] lg:w-[847px] md:w-[600px] sm:w-[400px] w-[300px] m-auto mt-5 opacity-25 mb-7 2xl:me-0 xl:me-0 lg:me-0 md:me-0 sm:me-0 me-[150px]">
-                <div class="about-us__img-box flex justify-center w-full 2xl:max-w-[988px] xl:max-w-[988px] lg:max-w-[988px] !md:max-w-[900px] 2xl:md:w-full xl:w-[700px] lg:w-[700px] md:w-[700px] sm:w-[500px] w-[400px] m-auto rounded-[20px] 2xl:me-0 xl:me-0 lg:me-0 md:me-0 sm:me-0 me-[150px]">
+                <hr class="2xl:w-[847px] xl:w-[847px] lg:w-[847px] md:w-[600px] sm:w-[400px] w-[300px] w-[300px] 2xl:m-auto xl:m-auto lg:m-auto md:m-auto sm:m-auto ms-[50px] !mt-5 opacity-25 !mb-10">
+                <div class="about-us__img-box flex justify-center w-full 2xl:max-w-[988px] xl:max-w-[988px] lg:max-w-[988px] !md:max-w-[900px] 2xl:md:w-full xl:w-[700px] lg:w-[700px] md:w-[700px] sm:w-[500px] w-[400px] rounded-[20px] 2xl:m-auto xl:m-auto lg:m-auto md:m-auto sm:me-20 me-[150px]" >
                     <img class="about-us__img-box w-full h-full" :src="aboutAll.poster_image" alt="">
                 </div>
                 <div v-html="aboutAll.short_bio"
-                    class="about-us__short-bio m-auto 2xl:max-w-[980px] xl:max-w-[980px] lg:max-w-[980px] md:max-w-[700px] sm:max-w-[500px] max-w-[380px] text-white text-sm leading-6 mb-6 mt-8 2xl:me-0 xl:me-0 lg:me-0 md:me-0 sm:me-0 me-[100px]">
+                    class="about-us__short-bio !mb-6 !mt-8 2xl:m-auto xl:m-auto lg:m-auto md:m-auto sm:m-auto ms-[20px] 2xl:max-w-[980px] xl:max-w-[980px] lg:max-w-[980px] md:max-w-[700px] sm:max-w-[500px] max-w-[360px] text-white text-sm leading-6">
                 </div>
-                <div class="about-us__stat flex justify-center ">
+                <div class="about-us__stat flex justify-center">
                     <img class="absolute object-cover about-us__stat-img rounded-xl 2xl:w-[986px] xl:w-[986px] lg:w-[986px] md:w-[700px] sm:w-[500px] w-[400px] h-[120px] object-cover"
                         src="https://uzbekistans.club/_nuxt/img/frame.cb7d8fc.png" alt="">
                 </div>
-                <div class="flex items-center justify-around mt-8 2xl:block xl:block lg:block md:block sm:block hidden">
+                <div class="2xl:flex xl:flex lg:flex md:flex sm:flex hidden items-center justify-around mt-8">
                     <div class="about-us__stat-box ms-[100px]">
                         <vue3-autocounter class="text-white font-[inter-bold]" ref='counter' :startAmount='0'
                             :endAmount='aboutStat.views' :duration='3' separator='.' :decimals='0' />
@@ -43,10 +43,10 @@
                         <p class="text-white font-[inter-medium] opacity-50 mt-4">Epizodlar</p>
                     </div>
                 </div>
-                <div class="mt-20 ">
+                <div class="mt-20">
                     <p class="text-left ms-[130px] text-white font-[Stroma] text-lg">Bizning jamoa</p>
                     <div
-                        class="about-us__team grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-5 md:grid-cols-2 sm:grid-cols-1 grid-cols-1  2xl:me-0 xl:me-0 lg:me-0 md:me-0 sm:me-0 me-[150px]">
+                        class="about-us__team grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-5 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 2xl:m-auto xl:m-auto lg:m-auto md:m-auto sm:m-auto me-[150px] ">
                         <div v-for="project_ownersData in project_owners" :key="project_ownersData.id"
                             class="about-us__team-box w-[225px] rounded-xl m-auto cursor-pointer">
                             <div class="aboutus-top__list h-[320px] rounded-xl">
@@ -73,7 +73,7 @@
                 </div>
                 <div class="about-us__all-desc mt-14">
                     <p class="text-left ms-[130px] text-white font-[Stroma] text-lg">Loyiha haqida</p>
-                    <div class="text-white text-center m-auto max-w-[988px] mt-10 about-us__all-desc-p text-sm md:text-lg 2xl:max-w-[988px] xl:max-w-[988px] lg:max-w-[988px] md:max-w-[700px] max-w-[350px] mx-auto mt-6 mb-10 text-[#FFFFFFCC] !leading-[22px] !font-[inter-medium] 2xl:me-0 xl:me-0 lg:me-0 md:me-0 sm:me-0 me-[130px]" v-html="aboutAll.about">
+                    <div class="text-white text-center m-auto max-w-[988px] mt-10 about-us__all-desc-p text-sm md:text-lg 2xl:max-w-[988px] xl:max-w-[988px] lg:max-w-[988px] md:max-w-[700px] mx-auto mt-6 mb-10 text-[#FFFFFFCC] !leading-[22px] !font-[inter-medium] 2xl:m-auto xl:m-auto lg:m-auto md:m-auto sm:m-auto me-[130px] ms-[20px]" v-html="aboutAll.about">
 
                     </div>
                 </div>
