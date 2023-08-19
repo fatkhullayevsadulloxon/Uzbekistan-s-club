@@ -3,10 +3,10 @@ export const Lang = {
         homePage: {
             HeaderNavAbout: "Biz haqimizda",
             HeaderNavProject: "Loyihalar",
-            HeaderNavMasterResident: "MASTER REZIDENTLAR",
-            HeaderNavResident: "REZIDENTLAR",
-            HeaderNavMediaResident: "MEDIA REZIDENTLAR",
-            LastEpisodes: "SO‘NGGI EPIZODLAR",
+            HeaderNavMasterResident: "Master rezidentlar",
+            HeaderNavResident: "Rezidenlar",
+            HeaderNavMediaResident: "Media Rezidentlar",
+            LastEpisodes: "So'nggi epizodlar",
             All: "Barchasi",
             Projects: "Loyihalar",
             Profile: "Profil",
@@ -20,13 +20,20 @@ export const Lang = {
             footerBottomDesc: "Uzbekistan’s club © 2023. Barcha huquqlar himoyalangan.",
             Developed: "Sayt ishlab chiquvchi: ",
         },
+        about: {
+            Home: "Bosh sahifa",
+            Viewers: "Ko'rishlar soni",
+            Episodes: "Epizodlar",
+            MyTeam: "Bizning jamoa",
+            aboutProject: "Loyiha haqida"
+        }
     },
     en: {
         homePage: {
             HeaderNavAbout: "About us",
             HeaderNavProject: "Projects",
             HeaderNavMasterResident: "MASTER RESIDENTS",
-            HeaderNavResident: "RESIDENTS",
+            HeaderNavResident: "Residents",
             HeaderNavMediaResident: "MEDIA RESIDENTS",
             LastEpisodes: "LATEST EPISODES",
             All: "All",
@@ -42,5 +49,12 @@ export const Lang = {
             footerBottomDesc: "Uzbekistan’s club © 2023. All rights reserved.",
             Developed: "Developed by: ",
         },
+        about: {
+            Home: "Main",
+            Viewers: "Viewers",
+            Episodes: "Episodes",
+            MyTeam: "Project creators",
+            aboutProject: "About project"
+        }
     }
 }

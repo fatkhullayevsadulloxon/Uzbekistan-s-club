@@ -54,7 +54,6 @@
                                     {{ langtext[$route.params.lan].homePage.HeaderNavMediaResident }}
                                 </router-link>
                                 <hr class="opacity-50 mt-3 mb-3">
-
                             </li>
                         </ul>
                         <div class="navbar-right relative 2xl:hidden xl:hidden lg:hidden md:block sm:block block">
