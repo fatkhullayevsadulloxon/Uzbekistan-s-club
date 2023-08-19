@@ -1,5 +1,5 @@
 <template>
-    <footer class="footer mt-[350px] bg-[#1b1b1b]">
+    <footer class="footer mt-[150px] bg-[#1b1b1b]">
         <div class="container footer__container">
             <div class="footer__box" v-if="langtext[$route.params.lan] != undefined">
                 <RouterLink to="/">

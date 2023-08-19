@@ -16,7 +16,7 @@
             <h3 class="text-white uppercase text-5xl pt-8 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-5 ms-5">Loyihalar</h3>
             <div class="mt-10">
                 <router-link :to="`projects/${projectsData.slug}`" v-for="projectsData in projects" :key="projectsData.id"
-                    class="projects-page__box overflow-hidden rounded-lg bg-[#181818] cursor-pointer mt-10 2xl:h-[236px] xl:h-[236px] lg:h-[236px] md:h-[455px] h-[430px] 2xl:flex xl:flex 2
+                    class="projects-page__box overflow-hidden rounded-lg bg-[#181818] cursor-pointer mt-10 2xl:h-[236px] xl:h-[236px] lg:h-[236px] md:h-[455px] h-[450px] 2xl:flex xl:flex 2
                 lg:flex md:block sm:block block items-center 2xl:w-full xl:w-full lg:w-full md:w-full sm:w-full w-[350px] 2xl:m-0 xl:m-0 lg:m-0 md:m-0 ms-[20px]">
                     <div class="ms-5 pt-3 pb-3 flex-direction">
                         <h2 class="flex items-end text-white text-base font-[inter-bold] mb-5">
