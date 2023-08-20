@@ -27,7 +27,7 @@
                             class="border border-neutral-600 flex-center-between bg-[#252423] rounded-lg 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-0 sm:ms-5 ms-5">
                             <div class="flex-center-between py-3.5 px-[16px]">
                                 <i class="fas fa-search" style="color: #ffffff; opacity: 0.5;"></i>
-                                <input
+                                <input v-model="term" @input="$emit('changeHandler', $event)"
                                     class="bg-transparent master-residents-page__input outline-none ms-2 text-white font-[inter-bold] 2xl:w-[290px] xl:w-[290px] lg:w-[290px] md:w-[290px] sm:w-[150px] w-[200px]"
                                     type="text" placeholder="Qidirish">
                             </div>
@@ -54,7 +54,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> 
                 <div class="">
 
                 </div>
@@ -74,14 +74,19 @@
             </div>
             <div
                 class="master-residents grid 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 gap-4 mt-14">
-                <RouterLink :to="`master-residents/${residentlistData.slug}`" v-for="residentlistData in residentlist" :key="residentlistData.id" class="master-residents__list bg-[#181818] 2xl:w-full xl:w-full lg:w-full md:w-full !w-[300px] 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-0 sm:ms-9 ms-9 h-[380px] rounded-lg">
+                <RouterLink :to="`master-residents/${residentlistData.slug}`" v-for="residentlistData in residentlist"
+                    :key="residentlistData.id"
+                    class="master-residents__list bg-[#181818] 2xl:w-full xl:w-full lg:w-full md:w-full !w-[300px] 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-0 sm:ms-9 ms-9 h-[380px] rounded-lg">
                     <img class="!w-[300px] !h-[288px] object-cover rounded-lg" :src="residentlistData.picture" alt="">
-                    <h3 class="text-white font-[inter-bold] text-center mt-5 master-residents__list-heading">{{ residentlistData.full_name }}</h3>
-                    <p class="text-white font-[inter-medium] text-center mt-2 text-dark-64 text-sm">{{ residentlistData.profession }}</p>
+                    <h3 class="text-white font-[inter-bold] text-center mt-5 master-residents__list-heading">{{
+                        residentlistData.full_name }}</h3>
+                    <p class="text-white font-[inter-medium] text-center mt-2 text-dark-64 text-sm">{{
+                        residentlistData.profession }}</p>
                 </RouterLink>
             </div>
             <div class="text-center 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-0 sm:ms-[-50px] ms-[-50px]">
-                <button @click="$emit('onChangeButton')" class="bg-[#1b1b1b] text-white px-8 py-5 rounded-md mt-8 font-[inter-bold]">Load more</button>
+                <button @click="$emit('onChangeButton')"
+                    class="bg-[#1b1b1b] text-white px-8 py-5 rounded-md mt-8 font-[inter-bold]">Load more</button>
             </div>
         </div>
     </section>
@@ -93,6 +98,12 @@ export default {
         return {
             langtext: Lang,
             isOpen: false,
+            term: ''
+        }
+    },
+    methods: {
+        changeHandler(e) {
+            this.term = e.target.value
         }
     },
     props: {
@@ -133,21 +144,22 @@ export default {
     line-height: 132%
 }
 
-.text-dark-64{
+.text-dark-64 {
     color: rgba(100, 100, 100, var(--tw-text-opacity));
 }
 
-.master-residents__list{
+.master-residents__list {
     transition: all 0.4s !important;
     border: 1px solid transparent !important
 }
-.master-residents__list:hover{
+
+.master-residents__list:hover {
     /* transition: all 0.4s; */
     border: 1px solid #fec775 !important;
     opacity: 0.7;
 }
 
-.master-residents__list:hover .master-residents__list-heading{
+.master-residents__list:hover .master-residents__list-heading {
     transition: all 0.4s;
     color: #fec775;
 }

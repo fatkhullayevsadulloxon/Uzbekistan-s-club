@@ -1,6 +1,7 @@
 <template>
     <div>
-        <MasterResidentsPage @onChangeButton="onChangeButton" :residentlist="residentlist" :whoMaster="whoMaster" :MasterResidentsPage="MasterResidentsPage" />
+        <MasterResidentsPage @onChangeButton="onChangeButton" @changeHandler="changeHandler" :residentlist="residentlist" :whoMaster="whoMaster"
+            :MasterResidentsPage="MasterResidentsPage" />
     </div>
 </template>
 <script>
@@ -15,7 +16,8 @@ export default {
             whoMaster: {},
             limit: 9,
             total: 0,
-            residentlist: []
+            residentlist: [],
+            term: '',
         }
     },
     methods: {
@@ -61,6 +63,7 @@ export default {
                     },
                     params: {
                         limit: this.limit,
+                        search: this.term
                     }
                 })
                 const dataArr = data.results
@@ -73,13 +76,17 @@ export default {
                     profession: item.profession
                 }))
                 this.residentlist = newArr,
-                this.total = data.total
+                    this.total = data.total
             } catch (error) {
                 console.log(error);
             }
         },
-        onChangeButton(){
+        onChangeButton() {
             this.limit = this.total,
+                this.fetchMasterResidentsList()
+        },
+        changeHandler(e){
+            this.term = e.data,
             this.fetchMasterResidentsList()
         }
     },
