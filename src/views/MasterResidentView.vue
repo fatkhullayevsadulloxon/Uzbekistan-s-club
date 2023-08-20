@@ -1,6 +1,6 @@
 <template>
     <div>
-        <MasterResidentsPage :whoMaster="whoMaster" :MasterResidentsPage="MasterResidentsPage"/>
+        <MasterResidentsPage @onChangeButton="onChangeButton" :residentlist="residentlist" :whoMaster="whoMaster" :MasterResidentsPage="MasterResidentsPage" />
     </div>
 </template>
 <script>
@@ -12,7 +12,10 @@ export default {
     data() {
         return {
             MasterResidentsPage: [],
-            whoMaster: {}
+            whoMaster: {},
+            limit: 9,
+            total: 0,
+            residentlist: []
         }
     },
     methods: {
@@ -50,10 +53,40 @@ export default {
                 console.log(error);
             }
         },
+        async fetchMasterResidentsList() {
+            try {
+                const { data } = await axios.get('https://uzbekclub.xn--h28h.uz/api/v1/residents/', {
+                    headers: {
+                        'Accept-Language': this.$route.params.lan
+                    },
+                    params: {
+                        limit: this.limit,
+                    }
+                })
+                const dataArr = data.results
+                const newArr = dataArr.map(item => ({
+                    full_name: item.full_name,
+                    slug: item.slug,
+                    picture: item.picture,
+                    picture_square: item.picture_square,
+                    picture_vertical: item.picture_vertical,
+                    profession: item.profession
+                }))
+                this.residentlist = newArr,
+                this.total = data.total
+            } catch (error) {
+                console.log(error);
+            }
+        },
+        onChangeButton(){
+            this.limit = this.total,
+            this.fetchMasterResidentsList()
+        }
     },
     mounted() {
-        this.fetchMasterResidents()  
-        this.fetchMasterResidentsWho()  
+        this.fetchMasterResidents()
+        this.fetchMasterResidentsWho()
+        this.fetchMasterResidentsList()
     },
 }
 </script>

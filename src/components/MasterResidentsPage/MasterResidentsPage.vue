@@ -60,13 +60,28 @@
                 </div>
             </div>
             <div class="who-rezident mt-5">
-                <img class="2xl:w-full xl:w-full lg:w-full md:w-full w-[350px] 2xl:h-[300px] xl:h-[300px] lg:h-[300px] md:h-[300px] h-[400px] 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-0 ms-5 rounded-xl object-cover who-rezident__img" src="https://uzbekistans.club/_nuxt/img/collage.22c3f91.webp" alt="">
+                <img class="2xl:w-full xl:w-full lg:w-full md:w-full w-[350px] 2xl:h-[300px] xl:h-[300px] lg:h-[300px] md:h-[300px] h-[400px] 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-0 ms-5 rounded-xl object-cover who-rezident__img"
+                    src="https://uzbekistans.club/_nuxt/img/collage.22c3f91.webp" alt="">
                 <div class="ms-5">
-                    <h4 class="absolute 2xl:mt-[-200px] xl:mt-[-200px] lg:mt-[-200px] md:mt-[-200px] mt-[-330px] 2xl:text-2xl xl:text-2xl lg:text-2xl ms-5 md:text-xl text-xl text-white font-[inter-bold]">{{ whoMaster.title }}</h4>
-                    <div class="absolute 2xl:mt-[-150px] xl:mt-[-150px] lg:mt-[-150px] md:mt-[-150px] mt-[-270px] 2xl:max-w-[863px] xl:max-w-[863px] lg:max-w-[863px] md:max-w-[863px] max-w-[300px] who-rezident__short_bio ms-5"  v-html="whoMaster.about">
+                    <h4
+                        class="absolute 2xl:mt-[-200px] xl:mt-[-200px] lg:mt-[-200px] md:mt-[-200px] mt-[-330px] 2xl:text-2xl xl:text-2xl lg:text-2xl ms-5 md:text-xl text-xl text-white font-[inter-bold]">
+                        {{ whoMaster.title }}</h4>
+                    <div class="absolute 2xl:mt-[-150px] xl:mt-[-150px] lg:mt-[-150px] md:mt-[-150px] mt-[-270px] 2xl:max-w-[863px] xl:max-w-[863px] lg:max-w-[863px] md:max-w-[863px] max-w-[300px] who-rezident__short_bio ms-5"
+                        v-html="whoMaster.about">
 
                     </div>
                 </div>
+            </div>
+            <div
+                class="master-residents grid 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 gap-4 mt-14">
+                <RouterLink :to="`master-residents/${residentlistData.slug}`" v-for="residentlistData in residentlist" :key="residentlistData.id" class="master-residents__list bg-[#181818] 2xl:w-full xl:w-full lg:w-full md:w-full !w-[300px] 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-0 sm:ms-9 ms-9 h-[380px] rounded-lg">
+                    <img class="!w-[300px] !h-[288px] object-cover rounded-lg" :src="residentlistData.picture" alt="">
+                    <h3 class="text-white font-[inter-bold] text-center mt-5 master-residents__list-heading">{{ residentlistData.full_name }}</h3>
+                    <p class="text-white font-[inter-medium] text-center mt-2 text-dark-64 text-sm">{{ residentlistData.profession }}</p>
+                </RouterLink>
+            </div>
+            <div class="text-center 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-0 sm:ms-[-50px] ms-[-50px]">
+                <button @click="$emit('onChangeButton')" class="bg-[#1b1b1b] text-white px-8 py-5 rounded-md mt-8 font-[inter-bold]">Load more</button>
             </div>
         </div>
     </section>
@@ -88,6 +103,10 @@ export default {
         whoMaster: {
             type: Object,
             required: true
+        },
+        residentlist: {
+            type: Array,
+            required: true,
         }
     }
 }
@@ -103,14 +122,33 @@ export default {
     color: gray
 }
 
-.who-rezident__img{
+.who-rezident__img {
     border: 1px solid #fec775;
 }
 
-.who-rezident__short_bio >>> span{
+.who-rezident__short_bio>>>span {
     font-family: 'inter-medium' !important;
     font-size: 16px;
     opacity: 0.9;
     line-height: 132%
+}
+
+.text-dark-64{
+    color: rgba(100, 100, 100, var(--tw-text-opacity));
+}
+
+.master-residents__list{
+    transition: all 0.4s !important;
+    border: 1px solid transparent !important
+}
+.master-residents__list:hover{
+    /* transition: all 0.4s; */
+    border: 1px solid #fec775 !important;
+    opacity: 0.7;
+}
+
+.master-residents__list:hover .master-residents__list-heading{
+    transition: all 0.4s;
+    color: #fec775;
 }
 </style>
