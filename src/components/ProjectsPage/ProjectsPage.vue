@@ -4,19 +4,22 @@
             <nav class="text-black 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-5 ms-5 my-8" aria-label="Breadcrumb">
                 <ol class="list-none p-0 inline-flex">
                     <li class="flex items-center">
-                        <RouterLink class="text-white font-[inter-medium]" to="/">Bosh sahifa</RouterLink>
+                        <RouterLink class="text-white font-[inter-medium]" to="/">{{ langtext[$route.params.lan].about.Home
+                        }}</RouterLink>
                         <img src="../../assets/images/arrow.svg" alt="">
                     </li>
                     <li class="flex items-center">
-                        <RouterLink class="text-white font-[inter-medium]" :to="`/${$route.params.lan}/projects`">Loyihalar
+                        <RouterLink class="text-white font-[inter-medium]" :to="`/${$route.params.lan}/projects`">{{
+                            langtext[$route.params.lan].homePage.Projects }}
                         </RouterLink>
                     </li>
                 </ol>
             </nav>
-            <h3 class="text-white uppercase text-5xl pt-8 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-5 ms-5">Loyihalar</h3>
+            <h3 class="text-white uppercase text-5xl pt-8 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-5 ms-5">{{
+                langtext[$route.params.lan].homePage.Projects }}</h3>
             <div class="mt-10">
                 <router-link :to="`projects/${projectsData.slug}`" v-for="projectsData in projects" :key="projectsData.id"
-                    class="projects-page__box overflow-hidden rounded-lg bg-[#181818] cursor-pointer mt-10 2xl:h-[236px] xl:h-[236px] lg:h-[236px] md:h-[455px] h-[450px] 2xl:flex xl:flex 2
+                    class="projects-page__box overflow-hidden rounded-lg bg-[#181818] cursor-pointer 2xl:h-[236px] xl:h-[236px] lg:h-[236px] md:h-[455px] h-[450px] 2xl:flex xl:flex 2
                 lg:flex md:block sm:block block items-center 2xl:w-full xl:w-full lg:w-full md:w-full sm:w-full w-[350px] 2xl:m-0 xl:m-0 lg:m-0 md:m-0 ms-[20px]">
                     <div class="ms-5 pt-3 pb-3 flex-direction">
                         <h2 class="flex items-end text-white text-base font-[inter-bold] mb-5">
@@ -28,7 +31,8 @@
                             {{ projectsData.short_bio }}</p>
                         <RouterLink
                             class="!py-3 !px-8 bg-[#322D24] relative z-10 text-sm font-normal text-[#F4D291] lg:hover:text-[#322D24] lg:hover:bg-[#F4D291] transition-200 rounded-lg 2xl:block xl:block lg:block md:block  sm:hidden hidden bg-[#4E4940] text-[#F4D291] w-[163px]"
-                            :to="`projects/${projectsData.slug}`">Loyihani ko'rish</RouterLink>
+                            :to="`projects/${projectsData.slug}`">{{ langtext[$route.params.lan].projects.projectsView }}
+                        </RouterLink>
                     </div>
                     <div class="flex ms-[-300px]">
                         <div class="projectdata-pictures linearwhite"
@@ -40,7 +44,8 @@
                     </div>
                     <RouterLink
                         class="!py-3 !px-8 bg-[#322D24] relative z-10 text-sm font-normal text-[#F4D291] lg:hover:text-[#322D24] lg:hover:bg-[#F4D291] transition-200 rounded-lg 2xl:hidden xl:hidden lg:hidden md:hidden  sm:block block bg-[#4E4940] text-[#F4D291] w-[280px] m-auto mt-5"
-                        :to="`projects/${projectsData.slug}`">Loyihani ko'rish</RouterLink>
+                        :to="`projects/${projectsData.slug}`">{{ langtext[$route.params.lan].projects.projectsView }}
+                    </RouterLink>
                 </router-link>
             </div>
         </div>
@@ -50,6 +55,7 @@
 </template>
 <script>
 import { RouterLink } from 'vue-router';
+import { Lang } from '../Lang/Lang'
 
 export default {
     props: {
@@ -58,7 +64,12 @@ export default {
             required: true,
         }
     },
-    components: { RouterLink }
+    components: { RouterLink },
+    data() {
+        return {
+            langtext: Lang
+        }
+    },
 }
 </script>
 <style scoped>
@@ -76,6 +87,10 @@ export default {
 
 .projects-page__box:nth-child(2) {
     background-color: #333;
+}
+
+.projects-page__box {
+    margin-top: 50px
 }
 
 /* .projectdata-pictures:nth-child(2){
@@ -111,5 +126,4 @@ export default {
     box-shadow: 31px 0px 26px 0px rgba(0, 0, 0, 0.65);
     -webkit-box-shadow: 31px 0px 26px 0px rgba(0, 0, 0, 0.65);
     -moz-box-shadow: 31px 0px 26px 0px rgba(0, 0, 0, 0.65);
-}
-</style>
+}</style>

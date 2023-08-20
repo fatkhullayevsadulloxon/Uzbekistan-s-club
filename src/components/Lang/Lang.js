@@ -26,6 +26,9 @@ export const Lang = {
             Episodes: "Epizodlar",
             MyTeam: "Bizning jamoa",
             aboutProject: "Loyiha haqida"
+        },
+        projects:{
+            projectsView: "Loyihani ko'rish"
         }
     },
     en: {
@@ -55,6 +58,9 @@ export const Lang = {
             Episodes: "Episodes",
             MyTeam: "Project creators",
             aboutProject: "About project"
+        },
+        projects: {
+            projectsView: "View Project"
         }
     }
 }
