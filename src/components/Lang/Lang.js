@@ -27,8 +27,14 @@ export const Lang = {
             MyTeam: "Bizning jamoa",
             aboutProject: "Loyiha haqida"
         },
-        projects:{
+        projects: {
             projectsView: "Loyihani ko'rish"
+        },
+        masterResidents: {
+            search: 'Qidirish',
+            latestAdded: "So'nggi qo'shilgan",
+            releasedAdded: "boshida chiqarilgan",
+            loadmore: "Yana yuklang"
         }
     },
     en: {
@@ -61,6 +67,12 @@ export const Lang = {
         },
         projects: {
             projectsView: "View Project"
+        },
+        masterResidents: {
+            search: 'Search',
+            latestAdded: "Last added",
+            releasedAdded: "First released",
+            loadmore: "Load more"
         }
     }
 }

@@ -11,7 +11,7 @@
                     </li>
                     <li class="flex items-center">
                         <RouterLink class="text-white font-[inter-medium]" :to="`/${$route.params.lan}/master-residents`">
-                            Resident
+                            {{ langtext[$route.params.lan].homePage.HeaderNavResident }}
                         </RouterLink>
                     </li>
                 </ol>
@@ -20,7 +20,7 @@
                 <div class="2xl:flex xl:flex lg:flex md:block block items-center justify-between mt-12">
                     <h3
                         class="text-white uppercase 2xl:text-5xl xl:text-5xl lg:text-5xl md:text-4xl sm:text-3xl text-xl 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-5 ms-5">
-                        MASTER REZIDENTLAR
+                        {{ langtext[$route.params.lan].homePage.HeaderNavMasterResident }}
                     </h3>
                     <div class="flex items-center opacity-75">
                         <div
@@ -29,14 +29,16 @@
                                 <i class="fas fa-search" style="color: #ffffff; opacity: 0.5;"></i>
                                 <input v-model="term" @input="$emit('changeHandler', $event)"
                                     class="bg-transparent master-residents-page__input outline-none ms-2 text-white font-[inter-bold] 2xl:w-[290px] xl:w-[290px] lg:w-[290px] md:w-[290px] sm:w-[150px] w-[200px]"
-                                    type="text" placeholder="Qidirish">
+                                    type="text" :placeholder="`${langtext[$route.params.lan].masterResidents.search}`">
                             </div>
                         </div>
                         <div class="navbar-right relative 2xl:block xl:block lg:block md:block sm:hidden hidden">
                             <button
                                 class="header__btn-language rounded-lg relative z-10 block m-2 overflow-hidden focus:outline-none text-sm leading-loose align-middle px-6 py-2.5 cursor-pointer text-sm bg-[#252423] uppercase text-white"
                                 @click="isOpen = !isOpen">
-                                <span class="ms-2 transition ease-in-out delay-50 font-[inter-bold]">Vaqt bo'yicha</span>
+                                <span class="ms-2 transition ease-in-out delay-50 font-[inter-bold]"> {{
+                                    langtext[$route.params.lan].masterResidents.latestAdded }}
+                                </span>
                                 <i v-if="isOpen === false" class="fa-solid fa-arrow-down ms-2" style="color: #ffffff;"></i>
                                 <i v-if="isOpen === true" class="fa-solid fa-arrow-up ms-2" style="color: #ffffff;"></i>
                             </button>
@@ -46,15 +48,17 @@
                                 class="absolute top-auto right-0 w-48 py-2 mt-2 rounded-xl border-gray-900 bg-white shadow-xl text-sm bg-[#252423] uppercase text-white">
                                 <a href="/uz"
                                     class="text-sm text-white hover:bg-blue-600 hover:bg-zinc-700 block px-4 py-2 cursor-pointer font-[inter-bold]">
-                                    Boshida chiqarilganlari</a>
+                                    {{ langtext[$route.params.lan].masterResidents.releasedAdded }}
+                                </a>
                                 <hr class="opacity-25">
                                 <a href="/en"
-                                    class="text-sm text-white hover:bg-blue-600 hover:bg-zinc-700 block px-4 py-2 cursor-pointer font-[inter-bold]">So'nggi
-                                    qo'shilgan</a>
+                                    class="text-sm text-white hover:bg-blue-600 hover:bg-zinc-700 block px-4 py-2 cursor-pointer font-[inter-bold]">
+                                    {{ langtext[$route.params.lan].masterResidents.latestAdded }}
+                                </a>
                             </div>
                         </div>
                     </div>
-                </div> 
+                </div>
                 <div class="">
 
                 </div>
@@ -74,7 +78,7 @@
             </div>
             <div
                 class="master-residents grid 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 gap-4 mt-14">
-                <RouterLink :to="`master-residents/${residentlistData.slug}`" v-for="residentlistData in residentlist"
+                <RouterLink :to="`master-residents/${residentlistData.slug}`" v-for=" residentlistData  in  residentlist "
                     :key="residentlistData.id"
                     class="master-residents__list bg-[#181818] 2xl:w-full xl:w-full lg:w-full md:w-full !w-[300px] 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-0 sm:ms-9 ms-9 h-[380px] rounded-lg">
                     <img class="!w-[300px] !h-[288px] object-cover rounded-lg" :src="residentlistData.picture" alt="">
@@ -86,7 +90,9 @@
             </div>
             <div class="text-center 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-0 sm:ms-[-50px] ms-[-50px]">
                 <button @click="$emit('onChangeButton')"
-                    class="bg-[#1b1b1b] text-white px-8 py-5 rounded-md mt-8 font-[inter-bold]">Load more</button>
+                    class="bg-[#1b1b1b] text-white px-8 py-5 rounded-md mt-8 font-[inter-bold]"> {{
+                        langtext[$route.params.lan].masterResidents.loadmore }}
+                </button>
             </div>
         </div>
     </section>
