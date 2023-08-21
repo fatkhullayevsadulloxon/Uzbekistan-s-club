@@ -1,5 +1,7 @@
 <template>
-    <ResidentPage @onChangeButton="onChangeButton" @onFilterCountry="onFilterCountry" :residentList="residentList" :residentToBe="residentToBe" :residentFilterCity="residentFilterCity" :residentFilterCountry="residentFilterCountry" />
+    <ResidentPage @changeHandler="changeHandler" @onChangeButton="onChangeButton" @onFilterCountry="onFilterCountry"
+        :residentList="residentList" :residentToBe="residentToBe" :residentFilterCity="residentFilterCity"
+        :residentFilterCountry="residentFilterCountry" />
 </template>
 <script>
 import ResidentPage from '../components/ResidentPage/ResidentPage.vue';
@@ -80,29 +82,34 @@ export default {
                         'Accept-Language': this.$route.params.lan
                     },
                     params: {
-                        limit: this.limit
+                        limit: this.limit,
+                        search: this.term
                     }
                 })
                 const dataArr = data.results
                 const newArr = dataArr.map(item => ({
-                   full_name: item.full_name,
-                   slug: item.slug,
-                   picture: item.picture,
-                   picture_square: item.picture_square,
-                   picture_vertical: item.picture_vertical,
-                   profession: item.profession,
+                    full_name: item.full_name,
+                    slug: item.slug,
+                    picture: item.picture,
+                    picture_square: item.picture_square,
+                    picture_vertical: item.picture_vertical,
+                    profession: item.profession,
                 }))
                 this.residentList = newArr
-                 this.total = data.total
+                this.total = data.total
             } catch (error) {
                 console.log(error);
             }
         },
-        onFilterCountry(){
+        onFilterCountry() {
             this.fetchResidentFilterCity()
         },
-        onChangeButton(){
+        onChangeButton() {
             this.limit = this.total,
+                this.fetchResidentList()
+        },
+        changeHandler(e) {
+            this.term = e.data,
             this.fetchResidentList()
         }
     },
