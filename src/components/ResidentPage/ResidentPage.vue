@@ -66,7 +66,8 @@
                 </div>
             </div>
             <div class="2xl:flex xl:flex lg:flex md:block block justify-between items-start mt-7">
-                <div class="resident-page__filter-box bg-[#171717] !h-[249px] !w-[276px] rounded-xl 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-5 ms-5 mb-5 ">
+                <div
+                    class="resident-page__filter-box bg-[#171717] !h-[249px] !w-[276px] rounded-xl 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-5 ms-5 mb-5 ">
                     <h3 class="text-white font-[inter-bold] ms-5 mt-6 mb-5">Filtr</h3>
                     <hr class="opacity-25 mb-4">
                     <div>
@@ -151,17 +152,40 @@
                         </div>
                     </div>
                 </div>
-                <div class="who-rezident rounded-xl">
-                    <img class="2xl:w-[925px] xl:w-[925px] lg:w-[925px] md:w-[925] w-[350px] 2xl:h-[248px] xl:h-[300px] lg:h-[300px] md:h-[300px] h-[400px] 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-0 ms-5 rounded-xl object-cover who-rezident__img"
-                        src="https://uzbekistans.club/_nuxt/img/collage.22c3f91.webp" alt="">
-                    <div class="ms-5">
-                        <h4
-                            class="absolute 2xl:mt-[-200px] xl:mt-[-200px] lg:mt-[-200px] md:mt-[-200px] mt-[-330px] 2xl:text-xl xl:text-xl lg:text-xl ms-5 md:text-xl text-[18px] text-white font-[inter-bold]"> {{ residentToBe.title }}
+                <div>
+                    <div class="who-rezident rounded-xl">
+                        <img class="2xl:w-[925px] xl:w-[925px] lg:w-[925px] md:w-[925] w-[350px] 2xl:h-[248px] xl:h-[300px] lg:h-[300px] md:h-[300px] h-[400px] 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-0 ms-5 rounded-xl object-cover who-rezident__img"
+                            src="https://uzbekistans.club/_nuxt/img/collage.22c3f91.webp" alt="">
+                        <div class="ms-5">
+                            <h4
+                                class="absolute 2xl:mt-[-200px] xl:mt-[-200px] lg:mt-[-200px] md:mt-[-200px] mt-[-330px] 2xl:text-xl xl:text-xl lg:text-xl ms-5 md:text-xl text-[18px] text-white font-[inter-bold]">
+                                {{ residentToBe.title }}
                             </h4>
-                        <div class="absolute 2xl:mt-[-150px] xl:mt-[-150px] lg:mt-[-150px] md:mt-[-150px] mt-[-270px] 2xl:max-w-[802px] xl:max-w-[802px] lg:max-w-[802px] md:max-w-[802px] max-w-[300px] who-rezident__short_bio ms-5" v-html="residentToBe.about
-                        ">
+                            <div class="absolute 2xl:mt-[-150px] xl:mt-[-150px] lg:mt-[-150px] md:mt-[-150px] mt-[-270px] 2xl:max-w-[802px] xl:max-w-[802px] lg:max-w-[802px] md:max-w-[802px] max-w-[300px] who-rezident__short_bio ms-5"
+                                v-html="residentToBe.about
+                                    ">
+                            </div>
                         </div>
                     </div>
+                    <div
+                        class="master-residents grid 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 gap-4 mt-14">
+                        <RouterLink :to="`master-residents/${residentlistData.slug}`"
+                            v-for=" residentlistData  in  residentList " :key="residentlistData.id"
+                            class="master-residents__list bg-[#181818] !2xl:w-[206px] xl:w-[206px] lg:w-[206px] md:w-[206px] w-[300px] 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-0 sm:ms-9 ms-9 h-[328px] rounded-lg">
+                            <img class="2xl:w-[206px] xl:w-[206px] lg:w-[206px] md:w-[300px] w-[300px] !h-[210px] object-cover rounded-lg" :src="residentlistData.picture"
+                                alt="">
+                            <h3 class="text-white font-[inter-bold] text-center mt-5 master-residents__list-heading">{{
+                                residentlistData.full_name }}</h3>
+                            <p class="text-white font-[inter-medium] text-center mt-2 text-dark-64 text-sm">{{
+                                residentlistData.profession }}</p>
+                        </RouterLink>
+                    </div>
+                     <div class="text-center 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-0 sm:ms-[-50px] ms-[-50px]">
+                                <button @click="$emit('onChangeButton')"
+                                    class="bg-[#1b1b1b] text-white px-8 py-5 rounded-md mt-8 font-[inter-bold]"> {{
+                                        langtext[$route.params.lan].masterResidents.loadmore }}
+                                </button>
+                            </div>
                 </div>
             </div>
         </div>
@@ -169,6 +193,7 @@
 </template>
 <script>
 
+import { RouterLink } from 'vue-router';
 import { Lang } from '../Lang/Lang';
 
 export default {
@@ -184,7 +209,11 @@ export default {
         residentToBe: {
             type: Object,
             required: true,
-        },  
+        },
+        residentList: {
+            type: Array,
+            required: true,
+        }
     },
     data() {
         return {
@@ -194,17 +223,34 @@ export default {
             filterSelect: "Barcha yo'nalishlar",
             langtext: Lang,
             isOpen: false,
-        }
+        };
     },
+    components: { RouterLink }
 }
 </script>
 <style scoped>
-.who-rezident__short_bio >>> span{
+.who-rezident__short_bio>>>span {
     font-family: 'inter-medium' !important;
     font-size: 16px;
 }
 
-.who-rezident__img{
+.who-rezident__img {
     border: 1px solid #fec775;
+}
+
+.master-residents__list {
+    transition: all 0.4s !important;
+    border: 1px solid transparent !important
+}
+
+.master-residents__list:hover {
+    /* transition: all 0.4s; */
+    border: 1px solid #fec775 !important;
+    opacity: 0.7;
+}
+
+.master-residents__list:hover .master-residents__list-heading {
+    transition: all 0.4s;
+    color: #fec775;
 }
 </style>

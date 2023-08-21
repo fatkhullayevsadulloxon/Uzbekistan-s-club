@@ -1,5 +1,5 @@
 <template>
-    <ResidentPage @onFilterCountry="onFilterCountry" :residentToBe="residentToBe" :residentFilterCity="residentFilterCity" :residentFilterCountry="residentFilterCountry" />
+    <ResidentPage @onChangeButton="onChangeButton" @onFilterCountry="onFilterCountry" :residentList="residentList" :residentToBe="residentToBe" :residentFilterCity="residentFilterCity" :residentFilterCountry="residentFilterCountry" />
 </template>
 <script>
 import ResidentPage from '../components/ResidentPage/ResidentPage.vue';
@@ -11,7 +11,10 @@ export default {
         return {
             residentFilterCountry: [],
             residentFilterCity: [],
+            residentList: [],
             residentToBe: {},
+            limit: 12,
+            total: 0
         }
     },
     methods: {
@@ -70,13 +73,43 @@ export default {
                 console.log(error);
             }
         },
+        async fetchResidentList() {
+            try {
+                const { data } = await axios.get('https://uzbekclub.xn--h28h.uz/api/v1/ordinary_residents/', {
+                    headers: {
+                        'Accept-Language': this.$route.params.lan
+                    },
+                    params: {
+                        limit: this.limit
+                    }
+                })
+                const dataArr = data.results
+                const newArr = dataArr.map(item => ({
+                   full_name: item.full_name,
+                   slug: item.slug,
+                   picture: item.picture,
+                   picture_square: item.picture_square,
+                   picture_vertical: item.picture_vertical,
+                   profession: item.profession,
+                }))
+                this.residentList = newArr
+                 this.total = data.total
+            } catch (error) {
+                console.log(error);
+            }
+        },
         onFilterCountry(){
             this.fetchResidentFilterCity()
+        },
+        onChangeButton(){
+            this.limit = this.total,
+            this.fetchResidentList()
         }
     },
     mounted() {
         this.fetchResidentFilterCountry()
         this.fetchResidentToBe()
+        this.fetchResidentList()
     }
 }
 </script>
