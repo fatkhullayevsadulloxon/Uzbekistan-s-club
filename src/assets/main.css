@@ -110,6 +110,23 @@ body {
     margin: 0 auto;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #fec775; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #fec775; 
+}
+
 /**
  * Render the `main` element consistently in IE.
  */

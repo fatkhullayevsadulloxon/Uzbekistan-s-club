@@ -22,7 +22,7 @@
                         class="text-white uppercase 2xl:text-5xl xl:text-5xl lg:text-5xl md:text-4xl sm:text-3xl text-xl 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-5 ms-5">
                         {{ langtext[$route.params.lan].homePage.HeaderNavMasterResident }}
                     </h3>
-                    <div class="flex items-center opacity-75">
+                    <div class="flex items-center">
                         <div
                             class="border border-neutral-600 flex-center-between bg-[#252423] rounded-lg 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-0 sm:ms-5 ms-5">
                             <div class="flex-center-between py-3.5 px-[16px]">
@@ -41,11 +41,11 @@
                                 </span>
                                 <i v-if="isOpen === false" class="fa-solid fa-arrow-down ms-2" style="color: #ffffff;"></i>
                                 <i v-if="isOpen === true" class="fa-solid fa-arrow-up ms-2" style="color: #ffffff;"></i>
-                            </button>
+                            </button>   
                             <button v-if="isOpen" @click="isOpen = false" tabindex="-1"
                                 class="fixed top-0 inset-0 h-full w-full bg-black opacity-0 cursor-default"></button>
                             <div v-if="isOpen"
-                                class="absolute top-auto right-0 w-48 py-2 mt-2 rounded-xl border-gray-900 bg-white shadow-xl text-sm bg-[#252423] uppercase text-white">
+                                class="absolute top-auto right-0 w-48 py-2 mt-2 rounded-xl border-gray-900 bg-white shadow-xl text-sm !bg-[#252423] uppercase text-white">
                                 <a href="/uz"
                                     class="text-sm text-white hover:bg-blue-600 hover:bg-zinc-700 block px-4 py-2 cursor-pointer font-[inter-bold]">
                                     {{ langtext[$route.params.lan].masterResidents.releasedAdded }}

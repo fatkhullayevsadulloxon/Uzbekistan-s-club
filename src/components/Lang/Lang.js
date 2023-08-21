@@ -4,7 +4,7 @@ export const Lang = {
             HeaderNavAbout: "Biz haqimizda",
             HeaderNavProject: "Loyihalar",
             HeaderNavMasterResident: "Master rezidentlar",
-            HeaderNavResident: "Rezidenlar",
+            HeaderNavResident: "Rezidentlar",
             HeaderNavMediaResident: "Media Rezidentlar",
             LastEpisodes: "So'nggi epizodlar",
             All: "Barchasi",
