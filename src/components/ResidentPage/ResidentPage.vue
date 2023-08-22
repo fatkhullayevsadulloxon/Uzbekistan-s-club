@@ -66,92 +66,111 @@
                 </div>
             </div>
             <div class="2xl:flex xl:flex lg:flex md:block block justify-between items-start mt-7">
-                <div
-                    class="resident-page__filter-box bg-[#171717] !h-[249px] !w-[276px] rounded-xl 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-5 ms-5 mb-5 ">
-                    <h3 class="text-white font-[inter-bold] ms-5 mt-6 mb-5">Filtr</h3>
-                    <hr class="opacity-25 mb-4">
-                    <div>
-                        <p class="text-white font-[inter-medium] ms-5 mb-2">Davlatni tanlang*</p>
-                        <div
-                            class="select border border-neutral-600 border-opacity-25 !bg-[#252423] ms-5 rounded-lg 2xl:w-[236px] xl:w-[236px] lg:w-[236px] md:w-[236px] sm:w-96 outline-none h-10 border border-gray-500">
-                            <div class="relative text-lg">
-                                <button class="flex items-center justify-between px-3 py-2 w-full rounded-lg"
-                                    @click="isOptionsExpanded = !isOptionsExpanded" @blur="isOptionsExpanded = false">
-                                    <span class="text-sm text-white font-[inter-bold]">
-                                        <span class="font-[inter-bold]" v-if="international === 'all'">
-                                            Tanlash
+                <div>
+                    <div
+                        class="resident-page__filter-box bg-[#171717] !h-[249px] !w-[276px] rounded-xl 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-5 ms-5 mb-5 ">
+                        <h3 class="text-white font-[inter-bold] ms-5 mb-5 pt-5">Filtr</h3>
+                        <hr class="opacity-25 mb-4">
+                        <div>
+                            <p class="text-white font-[inter-medium] ms-5 mb-2">Davlatni tanlang*</p>
+                            <div
+                                class="select border border-neutral-600 border-opacity-25 !bg-[#252423] ms-5 rounded-lg 2xl:w-[236px] xl:w-[236px] lg:w-[236px] md:w-[236px] sm:w-96 outline-none h-10 border border-gray-500">
+                                <div class="relative text-lg">
+                                    <button class="flex items-center justify-between px-3 py-2 w-full rounded-lg"
+                                        @click="isOptionsExpanded = !isOptionsExpanded" @blur="isOptionsExpanded = false">
+                                        <span class="text-sm text-white font-[inter-bold]">
+                                            <span class="font-[inter-bold]" v-if="international === 'all'">
+                                                Tanlash
+                                            </span>
+                                            <span class="font-[inter-bold]" v-else>
+                                                {{ international }}
+                                            </span>
                                         </span>
-                                        <span class="font-[inter-bold]" v-else>
-                                            {{ international }}
+                                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                            class="h-4 w-4 transform transition-transform duration-200 ease-in-out"
+                                            :class="isOptionsExpanded ? 'rotate-180' : 'rotate-0'">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </button>
+                                    <transition enter-active-class="transform transition duration-500 ease-custom"
+                                        enter-class="-translate-y-1/2 scale-y-0 opacity-0"
+                                        enter-to-class="translate-y-0 scale-y-100 opacity-100"
+                                        leave-active-class="transform transition duration-300 ease-custom"
+                                        leave-class="translate-y-0 scale-y-100 opacity-100"
+                                        leave-to-class="-translate-y-1/2 scale-y-0 opacity-0">
+                                        <ul v-show="isOptionsExpanded"
+                                            class="absolute h-[300px] list_box overflow-scroll !z-[10] left-0 right-0 mb-4 mt-2 shadow-lg overflow-hidden border border-neutral-600 border-opacity-25 !bg-[#252423] mt-[-1px]">
+                                            <li @click="$emit('onFilterCountry')"
+                                                v-for="residentFilterCountryData in residentFilterCountry"
+                                                :key="residentFilterCountryData.id"
+                                                class="px-3 text-white mt-2 font-[inter-medium] text-[16px] duration-300 hover:bg-zinc-700">
+                                                {{ residentFilterCountryData.name }}
+                                            </li>
+                                        </ul>
+                                    </transition>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-white font-[inter-medium] ms-5 mb-2 mt-4">Viloyatni tanlang *</p>
+                            <div
+                                class="select border border-neutral-600 border-opacity-25 !bg-[#252423] ms-5 rounded-lg 2xl:w-[236px] xl:w-[236px] lg:w-[236px] md:w-[236px] sm:w-96 outline-none h-10 border border-gray-500">
+                                <div class="relative text-lg">
+                                    <button class="flex items-center justify-between px-3 py-2 w-full rounded-lg"
+                                        @click="isOptionsExpanded2 = !isOptionsExpanded2"
+                                        @blur="isOptionsExpanded2 = false">
+                                        <span class="text-sm text-white font-[inter-bold]">
+                                            <span class="font-[inter-bold]" v-if="international === 'all'">
+                                                Tanlash
+                                            </span>
+                                            <span class="font-[inter-bold]" v-else>
+                                                {{ international }}
+                                            </span>
                                         </span>
-                                    </span>
-                                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                        class="h-4 w-4 transform transition-transform duration-200 ease-in-out"
-                                        :class="isOptionsExpanded ? 'rotate-180' : 'rotate-0'">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <transition enter-active-class="transform transition duration-500 ease-custom"
-                                    enter-class="-translate-y-1/2 scale-y-0 opacity-0"
-                                    enter-to-class="translate-y-0 scale-y-100 opacity-100"
-                                    leave-active-class="transform transition duration-300 ease-custom"
-                                    leave-class="translate-y-0 scale-y-100 opacity-100"
-                                    leave-to-class="-translate-y-1/2 scale-y-0 opacity-0">
-                                    <ul v-show="isOptionsExpanded"
-                                        class="absolute h-[300px] list_box overflow-scroll !z-[10] left-0 right-0 mb-4 mt-2 shadow-lg overflow-hidden border border-neutral-600 border-opacity-25 !bg-[#252423] mt-[-1px]">
-                                        <li @click="$emit('onFilterCountry')"
-                                            v-for="residentFilterCountryData in residentFilterCountry"
-                                            :key="residentFilterCountryData.id"
-                                            class="px-3 text-white mt-2 font-[inter-medium] text-[16px] duration-300 hover:bg-zinc-700">
-                                            {{ residentFilterCountryData.name }}
-                                        </li>
-                                    </ul>
-                                </transition>
+                                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                            class="h-4 w-4 transform transition-transform duration-200 ease-in-out"
+                                            :class="isOptionsExpanded2 ? 'rotate-180' : 'rotate-0'">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </button>
+                                    <transition enter-active-class="transform transition duration-500 ease-custom"
+                                        enter-class="-translate-y-1/2 scale-y-0 opacity-0"
+                                        enter-to-class="translate-y-0 scale-y-100 opacity-100"
+                                        leave-active-class="transform transition duration-300 ease-custom"
+                                        leave-class="translate-y-0 scale-y-100 opacity-100"
+                                        leave-to-class="-translate-y-1/2 scale-y-0 opacity-0">
+                                        <ul v-show="isOptionsExpanded2"
+                                            class="absolute h-[300px] list_box overflow-scroll z-[10] left-0 right-0 mb-4 mt-2 shadow-lg overflow-hidden border border-neutral-600 border-opacity-25 !bg-[#252423] mt-[-1px]">
+                                            <li v-for="residentFilterCityData in residentFilterCity"
+                                                :key="residentFilterCityData.id"
+                                                class="px-3 text-white mt-2 font-[inter-medium] text-[16px] duration-300 hover:bg-zinc-700">
+                                                {{ residentFilterCityData.name }}
+                                            </li>
+                                        </ul>
+                                    </transition>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <p class="text-white font-[inter-medium] ms-5 mb-2 mt-4">Viloyatni tanlang *</p>
-                        <div
-                            class="select border border-neutral-600 border-opacity-25 !bg-[#252423] ms-5 rounded-lg 2xl:w-[236px] xl:w-[236px] lg:w-[236px] md:w-[236px] sm:w-96 outline-none h-10 border border-gray-500">
-                            <div class="relative text-lg">
-                                <button class="flex items-center justify-between px-3 py-2 w-full rounded-lg"
-                                    @click="isOptionsExpanded2 = !isOptionsExpanded2" @blur="isOptionsExpanded2 = false">
-                                    <span class="text-sm text-white font-[inter-bold]">
-                                        <span class="font-[inter-bold]" v-if="international === 'all'">
-                                            Tanlash
-                                        </span>
-                                        <span class="font-[inter-bold]" v-else>
-                                            {{ international }}
-                                        </span>
-                                    </span>
-                                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                        class="h-4 w-4 transform transition-transform duration-200 ease-in-out"
-                                        :class="isOptionsExpanded2 ? 'rotate-180' : 'rotate-0'">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <transition enter-active-class="transform transition duration-500 ease-custom"
-                                    enter-class="-translate-y-1/2 scale-y-0 opacity-0"
-                                    enter-to-class="translate-y-0 scale-y-100 opacity-100"
-                                    leave-active-class="transform transition duration-300 ease-custom"
-                                    leave-class="translate-y-0 scale-y-100 opacity-100"
-                                    leave-to-class="-translate-y-1/2 scale-y-0 opacity-0">
-                                    <ul v-show="isOptionsExpanded2"
-                                        class="absolute h-[300px] list_box overflow-scroll left-0 right-0 mb-4 mt-2 shadow-lg overflow-hidden border border-neutral-600 border-opacity-25 !bg-[#252423] mt-[-1px]">
-                                        <li v-for="residentFilterCityData in residentFilterCity"
-                                            :key="residentFilterCityData.id"
-                                            class="px-3 text-white mt-2 font-[inter-medium] text-[16px] duration-300 hover:bg-zinc-700">
-                                            {{ residentFilterCityData.name }}
-                                        </li>
-                                    </ul>
-                                </transition>
+                    <div
+                        class="resident-page__filter-box bg-[#171717] !h-[535px] !w-[276px] rounded-xl 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-5 ms-5 mb-5 ">
+                        <h3 class="text-white font-[inter-bold] ms-5 pt-6 mb-5">Field of activity</h3>
+                        <hr class="opacity-25">
+                        <div class="master-residents__list-radio">
+                            <div @click="() => {
+                                masterid = residentFieldToData.id, $emit('onFilter', residentFieldToData.id)
+                            }" v-for="residentFieldToData in residentFieldTo" :key="residentFieldToData.id" style="align-items: center !important;"
+                                class="flex items-center cursor-pointer justify-between py-4 hover:bg-[#252423]">
+                                <label :class="{'text-[#fec775]': residentFieldToData.id === masterid}" class="text-white label-resident cursor-pointer font-[inter-medium] text-[#FFFFFFA3] w-full ms-5"
+                                    :for="residentFieldToData.title">{{ residentFieldToData.title }}</label>
+                                <input :id="residentFieldToData.title" type="radio" name="checbox" class="!me-5 filter-input">
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div>
                     <div class="who-rezident rounded-xl">
                         <img class="2xl:w-[925px] xl:w-[925px] lg:w-[925px] md:w-[925] w-[350px] 2xl:h-[248px] xl:h-[300px] lg:h-[300px] md:h-[300px] h-[400px] 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-0 ms-5 rounded-xl object-cover who-rezident__img"
@@ -172,23 +191,25 @@
                         <RouterLink :to="`master-residents/${residentlistData.slug}`"
                             v-for=" residentlistData  in  residentList " :key="residentlistData.id"
                             class="master-residents__list bg-[#181818] !2xl:w-[206px] xl:w-[206px] lg:w-[206px] md:w-[206px] w-[300px] 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-0 sm:ms-9 ms-9 h-[328px] rounded-lg">
-                            <img class="2xl:w-[206px] xl:w-[206px] lg:w-[206px] md:w-[300px] w-[300px] !h-[210px] object-cover rounded-lg" :src="residentlistData.picture"
-                                alt="">
+                            <img class="2xl:w-[206px] xl:w-[206px] lg:w-[206px] md:w-[300px] w-[300px] !h-[210px] object-cover rounded-lg"
+                                :src="residentlistData.picture" alt="">
                             <h3 class="text-white font-[inter-bold] text-center mt-5 master-residents__list-heading">{{
                                 residentlistData.full_name }}</h3>
                             <p class="text-white font-[inter-medium] text-center mt-2 text-dark-64 text-sm">{{
                                 residentlistData.profession }}</p>
                         </RouterLink>
                     </div>
-                     <div class="text-center 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-0 sm:ms-[-50px] ms-[-50px]">
-                                <button @click="$emit('onChangeButton')"
-                                    class="bg-[#1b1b1b] text-white px-8 py-5 rounded-md mt-8 font-[inter-bold]"> {{
-                                        langtext[$route.params.lan].masterResidents.loadmore }}
-                                </button>
-                            </div>
+                    <div class="text-center 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-0 sm:ms-[-50px] ms-[-50px]">
+                        <button @click="$emit('onChangeButton')"
+                            class="bg-[#1b1b1b] text-white px-8 py-5 rounded-md mt-8 font-[inter-bold]"> {{
+                                langtext[$route.params.lan].masterResidents.loadmore }}
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
+        <img src="https://uzbekistans.club/_nuxt/img/pattern.6a48bf5.png" alt=""
+            class="absolute top-[900px]  gradientPattern z-[-20]">
     </section>
 </template>
 <script>
@@ -213,6 +234,10 @@ export default {
         residentList: {
             type: Array,
             required: true,
+        },
+        residentFieldTo:{
+            type: Array,
+            required: true
         }
     },
     data() {
@@ -223,6 +248,7 @@ export default {
             filterSelect: "Barcha yo'nalishlar",
             langtext: Lang,
             isOpen: false,
+            masterid: 9 
         };
     },
     components: { RouterLink }
@@ -253,4 +279,30 @@ export default {
     transition: all 0.4s;
     color: #fec775;
 }
+
+.gradientPattern {
+    background: radial-gradient(64.65% 43.34% at 94.74% 50.26%, rgba(19, 19, 19, 0) 0, #131313 100%), #131313;
+}
+
+input {
+    appearance: none;
+}
+
+.filter-input {
+    border-radius: 50% !important;
+    width: 23px !important;
+    height: 20px !important;
+    border: 2px solid #999 !important;
+    transition: 0.2s all linear !important;
+    position: relative !important;
+}
+
+.filter-input:checked {
+    background-color: #fec775 !important;
+    border: 2px solid #fec775 !important
+}
+.filter-input:checked .label-resident{
+    color: #fec775 !important
+}
+
 </style>

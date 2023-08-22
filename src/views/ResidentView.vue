@@ -1,6 +1,6 @@
 <template>
-    <ResidentPage @changeHandler="changeHandler" @onChangeButton="onChangeButton" @onFilterCountry="onFilterCountry"
-        :residentList="residentList" :residentToBe="residentToBe" :residentFilterCity="residentFilterCity"
+    <ResidentPage @onFilter="onFilter" @changeHandler="changeHandler" @onChangeButton="onChangeButton" @onFilterCountry="onFilterCountry"
+        :residentList="residentList" :residentToBe="residentToBe" :residentFieldTo="residentFieldTo" :residentFilterCity="residentFilterCity"
         :residentFilterCountry="residentFilterCountry" />
 </template>
 <script>
@@ -14,9 +14,11 @@ export default {
             residentFilterCountry: [],
             residentFilterCity: [],
             residentList: [],
+            residentFieldTo: [],
             residentToBe: {},
             limit: 12,
-            total: 0
+            total: 0,
+            field_of_activity: ''
         }
     },
     methods: {
@@ -83,7 +85,8 @@ export default {
                     },
                     params: {
                         limit: this.limit,
-                        search: this.term
+                        search: this.term,
+                        field_of_activity: this.field_of_activity,
                     }
                 })
                 const dataArr = data.results
@@ -101,6 +104,25 @@ export default {
                 console.log(error);
             }
         },
+        async fetchFieldOfActivity() {
+            try {
+                const { data } = await axios.get('https://uzbekclub.xn--h28h.uz/api/v1/residents/field-of-activity/', {
+                    headers: {
+                        'Accept-Language': this.$route.params.lan
+                    },
+                })
+                const dataArr = data.results
+                const newArr = dataArr.map(item => ({
+                  id: item.id, 
+                  title: item.title, 
+                  slug: item.slug, 
+                  order: item.order, 
+                }))
+                this.residentFieldTo = newArr
+            } catch (error) {
+                console.log(error);
+            }
+        },
         onFilterCountry() {
             this.fetchResidentFilterCity()
         },
@@ -110,6 +132,14 @@ export default {
         },
         changeHandler(e) {
             this.term = e.data,
+                this.fetchResidentList()
+        },
+        onFilter(e){
+            this.field_of_activity = e
+            this.fetchResidentList()
+            if(e === 9){
+                this.field_of_activity = ""
+            }
             this.fetchResidentList()
         }
     },
@@ -117,6 +147,7 @@ export default {
         this.fetchResidentFilterCountry()
         this.fetchResidentToBe()
         this.fetchResidentList()
+        this.fetchFieldOfActivity()
     }
 }
 </script>
