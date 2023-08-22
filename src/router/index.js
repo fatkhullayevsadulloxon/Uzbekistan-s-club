@@ -4,6 +4,7 @@ import AboutView from '../views/AboutView.vue'
 import ProjectsView from '../views/ProjectsView.vue'
 import MasterResidentView from '../views/MasterResidentView.vue'
 import ResidentView from '../views/ResidentView.vue'
+import MediResidentView from '../views/MediResidentView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -40,6 +41,11 @@ const router = createRouter({
       path: '/:lan/residents',
       name: 'resident',
       component: ResidentView
+    },
+    {
+      path: '/:lan/media-residents',
+      name: 'media-residents',
+      component: MediResidentView
     },
   ]
 })
