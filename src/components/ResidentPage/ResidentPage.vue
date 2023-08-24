@@ -69,10 +69,12 @@
                 <div>
                     <div
                         class="resident-page__filter-box bg-[#171717] !h-[249px] !w-[276px] rounded-xl 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-5 ms-5 mb-5 ">
-                        <h3 class="text-white font-[inter-bold] ms-5 mb-5 pt-5">Filtr</h3>
+                        <h3 class="text-white font-[inter-bold] ms-5 mb-5 pt-5">{{
+                            langtext[$route.params.lan].residents.filtr }}</h3>
                         <hr class="opacity-25 mb-4">
                         <div>
-                            <p class="text-white font-[inter-medium] ms-5 mb-2">Davlatni tanlang*</p>
+                            <p class="text-white font-[inter-medium] ms-5 mb-2">{{
+                                langtext[$route.params.lan].residents.countrySelect }}</p>
                             <div
                                 class="select border border-neutral-600 border-opacity-25 !bg-[#252423] ms-5 rounded-lg 2xl:w-[236px] xl:w-[236px] lg:w-[236px] md:w-[236px] sm:w-96 outline-none h-10 border border-gray-500">
                                 <div class="relative text-lg">
@@ -80,7 +82,8 @@
                                         @click="isOptionsExpanded = !isOptionsExpanded" @blur="isOptionsExpanded = false">
                                         <span class="text-sm text-white font-[inter-bold]">
                                             <span class="font-[inter-bold]" v-if="international === 'all'">
-                                                Tanlash
+                                                {{
+                                                    langtext[$route.params.lan].residents.select }}
                                             </span>
                                             <span class="font-[inter-bold]" v-else>
                                                 {{ international }}
@@ -113,7 +116,8 @@
                             </div>
                         </div>
                         <div>
-                            <p class="text-white font-[inter-medium] ms-5 mb-2 mt-4">Viloyatni tanlang *</p>
+                            <p class="text-white font-[inter-medium] ms-5 mb-2 mt-4">{{
+                                langtext[$route.params.lan].residents.citySelect }}</p>
                             <div
                                 class="select border border-neutral-600 border-opacity-25 !bg-[#252423] ms-5 rounded-lg 2xl:w-[236px] xl:w-[236px] lg:w-[236px] md:w-[236px] sm:w-96 outline-none h-10 border border-gray-500">
                                 <div class="relative text-lg">
@@ -122,7 +126,8 @@
                                         @blur="isOptionsExpanded2 = false">
                                         <span class="text-sm text-white font-[inter-bold]">
                                             <span class="font-[inter-bold]" v-if="international === 'all'">
-                                                Tanlash
+                                                {{
+                                                    langtext[$route.params.lan].residents.select }}
                                             </span>
                                             <span class="font-[inter-bold]" v-else>
                                                 {{ international }}
@@ -156,16 +161,20 @@
                     </div>
                     <div
                         class="resident-page__filter-box bg-[#171717] !h-[535px] !w-[276px] rounded-xl 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-5 ms-5 mb-5 ">
-                        <h3 class="text-white font-[inter-bold] ms-5 pt-6 mb-5">Field of activity</h3>
+                        <h3 class="text-white font-[inter-bold] ms-5 pt-6 mb-5"> {{
+                            langtext[$route.params.lan].residents.fieldTo }}</h3>
                         <hr class="opacity-25">
                         <div class="master-residents__list-radio">
                             <div @click="() => {
                                 masterid = residentFieldToData.id, $emit('onFilter', residentFieldToData.id)
-                            }" v-for="residentFieldToData in residentFieldTo" :key="residentFieldToData.id" style="align-items: center !important;"
+                            }" v-for="residentFieldToData in residentFieldTo" :key="residentFieldToData.id"
+                                style="align-items: center !important;"
                                 class="flex items-center cursor-pointer justify-between py-4 hover:bg-[#252423]">
-                                <label :class="{'text-[#fec775]': residentFieldToData.id === masterid}" class="text-white label-resident cursor-pointer font-[inter-medium] text-[#FFFFFFA3] w-full ms-5"
+                                <label :class="{ 'text-[#fec775]': residentFieldToData.id === masterid }"
+                                    class="text-white label-resident cursor-pointer font-[inter-medium] text-[#FFFFFFA3] w-full ms-5"
                                     :for="residentFieldToData.title">{{ residentFieldToData.title }}</label>
-                                <input :id="residentFieldToData.title" type="radio" name="checbox" class="!me-5 filter-input">
+                                <input :id="residentFieldToData.title" type="radio" name="checbox"
+                                    class="!me-5 filter-input">
                             </div>
                         </div>
                     </div>
@@ -180,7 +189,7 @@
                                 class="absolute 2xl:mt-[-200px] xl:mt-[-200px] lg:mt-[-200px] md:mt-[-200px] mt-[-330px] 2xl:text-xl xl:text-xl lg:text-xl ms-5 md:text-xl text-[18px] text-white font-[inter-bold]">
                                 {{ residentToBe.title }}
                             </h4>
-                            <div class="absolute 2xl:mt-[-150px] xl:mt-[-150px] lg:mt-[-150px] md:mt-[-150px] mt-[-270px] 2xl:max-w-[802px] xl:max-w-[802px] lg:max-w-[802px] md:max-w-[802px] max-w-[300px] who-rezident__short_bio ms-5"
+                            <div class="absolute 2xl:mt-[-150px] xl:mt-[-150px] lg:mt-[-150px] md:mt-[-150px] mt-[-270px] 2xl:max-w-[802px] xl:max-w-[802px] lg:max-w-[802px] md:max-w-[802px] max-w-[300px] who-rezident__short_bio ms-5 text-white"
                                 v-html="residentToBe.about
                                     ">
                             </div>
@@ -188,7 +197,7 @@
                     </div>
                     <div
                         class="master-residents grid 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 gap-4 mt-14">
-                        <RouterLink :to="`master-residents/${residentlistData.slug}`"
+                        <RouterLink :to="`residents/${residentlistData.slug}`"
                             v-for=" residentlistData  in  residentList " :key="residentlistData.id"
                             class="master-residents__list bg-[#181818] !2xl:w-[206px] xl:w-[206px] lg:w-[206px] md:w-[206px] w-[300px] 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-0 sm:ms-9 ms-9 h-[328px] rounded-lg">
                             <img class="2xl:w-[206px] xl:w-[206px] lg:w-[206px] md:w-[300px] w-[300px] !h-[210px] object-cover rounded-lg"
@@ -235,7 +244,7 @@ export default {
             type: Array,
             required: true,
         },
-        residentFieldTo:{
+        residentFieldTo: {
             type: Array,
             required: true
         }
@@ -248,7 +257,7 @@ export default {
             filterSelect: "Barcha yo'nalishlar",
             langtext: Lang,
             isOpen: false,
-            masterid: 9 
+            masterid: 9
         };
     },
     components: { RouterLink }
@@ -256,6 +265,10 @@ export default {
 </script>
 <style scoped>
 .who-rezident__short_bio>>>span {
+    font-family: 'inter-medium' !important;
+    font-size: 16px;
+}
+.who-rezident__short_bio>>>p {
     font-family: 'inter-medium' !important;
     font-size: 16px;
 }
@@ -301,8 +314,8 @@ input {
     background-color: #fec775 !important;
     border: 2px solid #fec775 !important
 }
-.filter-input:checked .label-resident{
+
+.filter-input:checked .label-resident {
     color: #fec775 !important
 }
-
 </style>

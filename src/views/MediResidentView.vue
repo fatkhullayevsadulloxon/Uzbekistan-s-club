@@ -1,5 +1,5 @@
 <template lang="">
-    <MediaResidentPageVue :mediaResidents="mediaResidents" :mediaResidentList="mediaResidentList" :mediaReidentFieldTo="mediaReidentFieldTo"/>
+    <MediaResidentPageVue @onFilter="onFilter" @changeHandler="changeHandler" :mediaResidents="mediaResidents" :mediaResidentList="mediaResidentList" :mediaReidentFieldTo="mediaReidentFieldTo"/>
 </template>
 <script>
 
@@ -15,11 +15,13 @@ export default {
             mediaReidentFieldTo: [],
             mediaResidentList: [],
             mediaResidents: {},
-            limit: 9
+            limit: 9,
+            term: '',
+            field_of_activity: ''
         }
     },
     methods: {
-         async fetchMediaResidentsField() {
+        async fetchMediaResidentsField() {
             try {
                 const { data } = await axios.get('https://uzbekclub.xn--h28h.uz/api/v1/media_residents/field-of-activity/', {
                     headers: {
@@ -40,14 +42,16 @@ export default {
                 console.log(error);
             }
         },
-         async fetchMediaResidentsList() {
+        async fetchMediaResidentsList() {
             try {
                 const { data } = await axios.get('https://uzbekclub.xn--h28h.uz/api/v1/media_residents/', {
                     headers: {
                         'Accept-Language': this.$route.params.lan
                     },
                     params: {
-                        limit: this.limit 
+                        limit: this.limit,
+                        search: this.term,
+                        field_of_activity: this.field_of_activity,
                     }
                 })
                 const dataArr = data.results
@@ -64,7 +68,7 @@ export default {
                 console.log(error);
             }
         },
-         async fetchMediaResidents() {
+        async fetchMediaResidents() {
             try {
                 const { data } = await axios.get('https://uzbekclub.xn--h28h.uz/api/v1/pages/media-rezidentlar/', {
                     headers: {
@@ -76,8 +80,21 @@ export default {
                 console.log(error);
             }
         },
+        changeHandler(e) {
+            this.term = e.data,
+                this.fetchMediaResidentsList()
+        },
+        onFilter(e) {
+            this.field_of_activity = e
+            this.fetchMediaResidentsList()
+            if (e === 9) {
+                this.field_of_activity = ""
+            }
+            this.fetchMediaResidentsList()
+        }
     },
-    mounted(){
+
+    mounted() {
         this.fetchMediaResidentsField()
         this.fetchMediaResidentsList()
         this.fetchMediaResidents()

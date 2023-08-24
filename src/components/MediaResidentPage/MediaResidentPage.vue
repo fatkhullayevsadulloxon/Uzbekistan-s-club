@@ -69,7 +69,8 @@
                 <div>
                     <div
                         class="resident-page__filter-box bg-[#171717] !h-[385px] !w-[276px] rounded-xl 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-5 ms-5 mb-5 ">
-                        <h3 class="text-white font-[inter-bold] ms-5 pt-6 mb-5">Field of activity</h3>
+                        <h3 class="text-white font-[inter-bold] ms-5 pt-6 mb-5">{{
+                            langtext[$route.params.lan].residents.fieldTo }}</h3>
                         <hr class="opacity-25">
                         <div class="master-residents__list-radio">
                             <div @click="() => {
@@ -124,7 +125,7 @@
             </div>
         </div>
         <img src="https://uzbekistans.club/_nuxt/img/pattern.6a48bf5.png" alt=""
-            class="absolute top-[900px]  gradientPattern z-[-20]">
+            class="absolute top-[300px]  gradientPattern z-[-20]">
     </section>
 </template>
 <script>

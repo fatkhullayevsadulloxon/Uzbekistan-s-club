@@ -35,6 +35,13 @@ export const Lang = {
             latestAdded: "So'nggi qo'shilgan",
             releasedAdded: "boshida chiqarilgan",
             loadmore: "Yana yuklang"
+        },
+        residents: {
+            filtr: 'Filtr',
+            countrySelect: 'Davlatni tanlang*',
+            citySelect: 'Viloyatni tanlang *',
+            select: "Tanlash",
+            fieldTo: "Faoliyat sohasi"
         }
     },
     en: {
@@ -73,6 +80,13 @@ export const Lang = {
             latestAdded: "Last added",
             releasedAdded: "First released",
             loadmore: "Load more"
+        },
+        residents: {
+            filtr: 'Filter',
+            select: "Choose",
+            countrySelect: 'Choose country *',
+            citySelect: 'Choose region',
+            fieldTo: "Field of activity"
         }
     }
 }
