@@ -28,7 +28,7 @@
                     :src="singleResidentInfo.picture" alt="">
                 <div class="resident-single-page__right 2xl:ms-14 xl:ms-14 lg:ms-14 md:ms-14 ms-5 2xl:mt-0 xl:mt-0 lg:ms-0 md:ms-0 mt-5">
                     <h3 class="text-white font-[inter-bold]"> {{ singleResidentInfo.full_name }}</h3>
-                    <p class="text-[#A1A1A1] mt-2 font-[inter-bold]">{{ singleResidentInfo.short_bio }}</p>
+                    <p class="text-[#A1A1A1] mt-2 font-[inter-bold] 2xl:max-w-0 xl:max-w-0 lg:max-w-0 md:max-w-0 max-w-[340px]">{{ singleResidentInfo.short_bio }}</p>
                     <div class="text-white mt-10 resident-single-page__info-text 2xl:max-w-[579px] xl:max-w-[579px] lg:max-w-[579px] md:max-w-[579px] max-w-[340px] text-sm md:text-lg font-medium"
                         v-html="singleResidentInfo.about">
 
