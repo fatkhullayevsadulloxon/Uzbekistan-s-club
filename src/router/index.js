@@ -6,6 +6,9 @@ import MasterResidentView from '../views/MasterResidentView.vue'
 import ResidentView from '../views/ResidentView.vue'
 import MediResidentView from '../views/MediResidentView.vue'
 import ResidentsSingleView from '../views/ResidentsSingleView.vue'
+import SingleMasterResidents from '../views/SingleMasterResidents.vue'
+import SingleMediaResidents from '../views/SingleMediaResidents.vue'
+import ProfileSingleView from '../views/ProfileSingleView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -54,6 +57,21 @@ const router = createRouter({
       path: '/:lan/residents/:name/',
       name: 'residentssingle',
       component: ResidentsSingleView
+    },
+    {
+      path: '/:lan/master-residents/:name/',
+      name: 'master-residentssingle',
+      component: SingleMasterResidents
+    },
+    {
+      path: '/:lan/media-residents/:name/',
+      name: 'media-residentssingle',
+      component: SingleMediaResidents
+    },
+    {
+      path: '/:lan/top/:profile/',
+      name: 'profile-single',
+      component: ProfileSingleView
     },
   ]
 })

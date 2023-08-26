@@ -104,7 +104,7 @@
                     </div>
                     <div
                         class="master-residents grid 2xl:grid-cols-3 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 gap-4 mt-14">
-                        <RouterLink :to="`master-residents/${residentlistData.slug}`"
+                        <RouterLink :to="`media-residents/${residentlistData.slug}`"
                             v-for=" residentlistData  in  mediaResidentList " :key="residentlistData.id"
                             class="master-residents__list bg-[#181818] !2xl:w-[284px] xl:w-[284px] lg:w-[284px] md:w-[284px] w-[300px] 2xl:ms-0 xl:ms-0 lg:ms-0 md:ms-0 sm:ms-9 ms-9 h-[392px] rounded-lg">
                             <img class="2xl:w-[284px] xl:w-[284px] lg:w-[284px] md:w-[300px] w-[300px] !h-[288px] object-cover rounded-lg"
